@@ -39,7 +39,7 @@ const ActivityLog = ({ activities }) => {
     if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
     if (diffInMinutes < 1440) return `${Math.floor(diffInMinutes / 60)}h ago`;
     
-    return activityTime?.toLocaleDateString('en-US', {
+    return activityTime?.toLocaleDateString('en-GB', {
       month: 'short',
       day: 'numeric',
       hour: '2-digit',

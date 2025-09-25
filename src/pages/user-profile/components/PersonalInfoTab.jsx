@@ -13,8 +13,8 @@ const PersonalInfoTab = ({ user, onSave }) => {
     jobTitle: user?.jobTitle || '',
     address: user?.address || '',
     city: user?.city || '',
-    state: user?.state || '',
-    zipCode: user?.zipCode || ''
+    county: user?.county || '',
+    postcode: user?.postcode || ''
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -50,8 +50,8 @@ const PersonalInfoTab = ({ user, onSave }) => {
       jobTitle: user?.jobTitle || '',
       address: user?.address || '',
       city: user?.city || '',
-      state: user?.state || '',
-      zipCode: user?.zipCode || ''
+      county: user?.county || '',
+      postcode: user?.postcode || ''
     });
     setIsEditing(false);
   };
@@ -180,16 +180,16 @@ const PersonalInfoTab = ({ user, onSave }) => {
               disabled={!isEditing}
             />
             <Input
-              label="State"
-              name="state"
-              value={formData?.state}
+              label="County"
+              name="county"
+              value={formData?.county}
               onChange={handleInputChange}
               disabled={!isEditing}
             />
             <Input
-              label="ZIP Code"
-              name="zipCode"
-              value={formData?.zipCode}
+              label="Postcode"
+              name="postcode"
+              value={formData?.postcode}
               onChange={handleInputChange}
               disabled={!isEditing}
             />

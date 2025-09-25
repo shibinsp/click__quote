@@ -21,7 +21,7 @@ const QuotationHeader = ({ quotation, userRole, onEdit, onDuplicate, onPrint, on
               Quotation #{quotation?.id}
             </h1>
             <p className="text-muted-foreground mt-1">
-              Created on {new Date(quotation.createdAt)?.toLocaleDateString('en-US', {
+              Created on {new Date(quotation.createdAt)?.toLocaleDateString('en-GB', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'

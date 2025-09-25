@@ -15,8 +15,8 @@ class User(Base):
     job_title = Column(String(100))
     address = Column(String(255))
     city = Column(String(100))
-    state = Column(String(100))
-    zip_code = Column(String(20))
+    county = Column(String(100))
+    postcode = Column(String(20))
     role = Column(String(50), default="User")  # Admin, User, Manager
     avatar = Column(String(500))
     hashed_password = Column(String(255), nullable=False)

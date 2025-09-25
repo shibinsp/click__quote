@@ -26,7 +26,7 @@ const QuotationStatusIndicator = ({
   const formatTimestamp = (timestamp) => {
     if (!timestamp) return '';
     const date = new Date(timestamp);
-    return date?.toLocaleDateString('en-US', {
+    return date?.toLocaleDateString('en-GB', {
       month: 'short',
       day: 'numeric',
       hour: '2-digit',

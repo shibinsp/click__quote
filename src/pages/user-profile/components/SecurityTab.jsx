@@ -127,7 +127,7 @@ const SecurityTab = ({ user }) => {
     } else if (diffInHours < 24) {
       return `${diffInHours} hours ago`;
     } else {
-      return date?.toLocaleDateString('en-US', {
+      return date?.toLocaleDateString('en-GB', {
         month: 'short',
         day: 'numeric',
         hour: '2-digit',

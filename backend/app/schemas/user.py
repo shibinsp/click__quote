@@ -11,8 +11,8 @@ class UserBase(BaseModel):
     job_title: Optional[str] = None
     address: Optional[str] = None
     city: Optional[str] = None
-    state: Optional[str] = None
-    zip_code: Optional[str] = None
+    county: Optional[str] = None
+    postcode: Optional[str] = None
     role: Optional[str] = "User"
     avatar: Optional[str] = None
 
@@ -28,8 +28,8 @@ class UserUpdate(BaseModel):
     job_title: Optional[str] = None
     address: Optional[str] = None
     city: Optional[str] = None
-    state: Optional[str] = None
-    zip_code: Optional[str] = None
+    county: Optional[str] = None
+    postcode: Optional[str] = None
     role: Optional[str] = None
     avatar: Optional[str] = None
     is_active: Optional[bool] = None

@@ -4,7 +4,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 const ConversionChart = ({ data }) => {
   const formatTooltip = (value, name) => {
     if (name === 'conversion') {
-      return [`£{value}%`, 'Conversion Rate'];
+      return [`${value}%`, 'Conversion Rate'];
     }
     return [value, name === 'submitted' ? 'Submitted' : 'Accepted'];
   };

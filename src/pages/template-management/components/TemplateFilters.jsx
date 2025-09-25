@@ -51,6 +51,8 @@ const TemplateFilters = ({
           onClick={onCreateNew}
           iconName="Plus"
           iconPosition="left"
+          className="animate-bounce-in hover-lift"
+          style={{ animationDelay: '0.5s' }}
         >
           Create Template
         </Button>
@@ -132,6 +134,8 @@ const TemplateFilters = ({
             onClick={onClearFilters}
             iconName="X"
             iconPosition="left"
+            className="animate-bounce-in hover-lift"
+            style={{ animationDelay: '0.6s' }}
           >
             Clear All
           </Button>

@@ -159,8 +159,8 @@ const Quotations = () => {
           <div className="mb-8">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h1 className="text-3xl font-bold text-foreground">Service Order Quotations</h1>
-                <p className="text-muted-foreground mt-1">
+                <h1 className="text-3xl font-bold text-foreground animate-fade-in">Service Order Quotations</h1>
+                <p className="text-muted-foreground mt-1 animate-slide-in-right">
                   Manage and track all service order quotations
                 </p>
               </div>
@@ -170,6 +170,7 @@ const Quotations = () => {
                   onClick={() => navigate('/create-quotation')}
                   iconName="Plus"
                   iconPosition="left"
+                  className="animate-bounce-in hover-lift"
                 >
                   New Quotation
                 </Button>
@@ -177,6 +178,8 @@ const Quotations = () => {
                   variant="default"
                   iconName="Download"
                   iconPosition="left"
+                  className="animate-bounce-in hover-lift"
+                  style={{ animationDelay: '0.1s' }}
                 >
                   Export
                 </Button>
@@ -184,7 +187,7 @@ const Quotations = () => {
             </div>
 
             {/* Filters and Search */}
-            <div className="bg-card border border-border rounded-lg p-6 mb-6">
+            <div className="bg-card border border-border rounded-lg p-6 mb-6 card-modern animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0 lg:space-x-4">
                 {/* Search */}
                 <div className="flex-1 max-w-md">
@@ -219,7 +222,7 @@ const Quotations = () => {
 
             {/* Summary Stats */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-              <div className="bg-card border border-border rounded-lg p-6">
+              <div className="bg-card border border-border rounded-lg p-6 card-modern hover-lift animate-bounce-in" style={{ animationDelay: '0.3s' }}>
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Total Quotations</p>
@@ -228,7 +231,7 @@ const Quotations = () => {
                   <Icon name="FileText" size={24} className="text-primary" />
                 </div>
               </div>
-              <div className="bg-card border border-border rounded-lg p-6">
+              <div className="bg-card border border-border rounded-lg p-6 card-modern hover-lift animate-bounce-in" style={{ animationDelay: '0.4s' }}>
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Sent to Customer</p>
@@ -239,7 +242,7 @@ const Quotations = () => {
                   <Icon name="Send" size={24} className="text-blue-600" />
                 </div>
               </div>
-              <div className="bg-card border border-border rounded-lg p-6">
+              <div className="bg-card border border-border rounded-lg p-6 card-modern hover-lift animate-bounce-in" style={{ animationDelay: '0.5s' }}>
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">This Month</p>
@@ -250,7 +253,7 @@ const Quotations = () => {
                   <Icon name="Calendar" size={24} className="text-green-600" />
                 </div>
               </div>
-              <div className="bg-card border border-border rounded-lg p-6">
+              <div className="bg-card border border-border rounded-lg p-6 card-modern hover-lift animate-bounce-in" style={{ animationDelay: '0.6s' }}>
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Active</p>
@@ -265,64 +268,64 @@ const Quotations = () => {
           </div>
 
           {/* Quotations Table */}
-          <div className="bg-card border border-border rounded-lg overflow-hidden">
+          <div className="bg-card border border-border rounded-lg overflow-hidden card-modern animate-fade-in" style={{ animationDelay: '0.7s' }}>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-muted">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider border-2 border-accent hover:border-primary transition-all duration-300 hover:bg-accent/10 animate-bounce-in rounded-lg" style={{ animationDelay: '0.1s' }}>
                       <button
                         onClick={() => handleSort('id')}
-                        className="flex items-center space-x-1 hover:text-foreground"
+                        className="flex items-center space-x-1 hover:text-foreground transition-colors duration-200"
                       >
                         <span>Quotation ID</span>
                         <Icon name={getSortIcon('id')} size={14} />
                       </button>
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider border-2 border-accent hover:border-primary transition-all duration-300 hover:bg-accent/10 animate-bounce-in rounded-lg" style={{ animationDelay: '0.2s' }}>
                       <button
                         onClick={() => handleSort('description')}
-                        className="flex items-center space-x-1 hover:text-foreground"
+                        className="flex items-center space-x-1 hover:text-foreground transition-colors duration-200"
                       >
                         <span>Description</span>
                         <Icon name={getSortIcon('description')} size={14} />
                       </button>
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider border-2 border-accent hover:border-primary transition-all duration-300 hover:bg-accent/10 animate-bounce-in rounded-lg" style={{ animationDelay: '0.3s' }}>
                       <button
                         onClick={() => handleSort('createdOn')}
-                        className="flex items-center space-x-1 hover:text-foreground"
+                        className="flex items-center space-x-1 hover:text-foreground transition-colors duration-200"
                       >
                         <span>Created On</span>
                         <Icon name={getSortIcon('createdOn')} size={14} />
                       </button>
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider border-2 border-accent hover:border-primary transition-all duration-300 hover:bg-accent/10 animate-bounce-in rounded-lg" style={{ animationDelay: '0.4s' }}>
                       Sold To Party
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider border-2 border-accent hover:border-primary transition-all duration-300 hover:bg-accent/10 animate-bounce-in rounded-lg" style={{ animationDelay: '0.5s' }}>
                       Site Address
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider border-2 border-accent hover:border-primary transition-all duration-300 hover:bg-accent/10 animate-bounce-in rounded-lg" style={{ animationDelay: '0.6s' }}>
                       Status
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider border-2 border-accent hover:border-primary transition-all duration-300 hover:bg-accent/10 animate-bounce-in rounded-lg" style={{ animationDelay: '0.7s' }}>
                       External Reference
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider border-2 border-accent hover:border-primary transition-all duration-300 hover:bg-accent/10 animate-bounce-in rounded-lg" style={{ animationDelay: '0.8s' }}>
                       Valid From
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider border-2 border-accent hover:border-primary transition-all duration-300 hover:bg-accent/10 animate-bounce-in rounded-lg" style={{ animationDelay: '0.9s' }}>
                       Valid To
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider border-2 border-accent hover:border-primary transition-all duration-300 hover:bg-accent/10 animate-bounce-in rounded-lg" style={{ animationDelay: '1.0s' }}>
                       Actions
                     </th>
                   </tr>
                 </thead>
                 <tbody className="bg-card divide-y divide-border">
-                  {filteredQuotations.map((quotation) => (
-                    <tr key={quotation.id} className="hover:bg-muted/50">
+                  {filteredQuotations.map((quotation, index) => (
+                    <tr key={quotation.id} className="hover:bg-muted/50 animate-slide-in-right" style={{ animationDelay: `${0.8 + index * 0.1}s` }}>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-foreground">
                         {quotation.id}
                       </td>

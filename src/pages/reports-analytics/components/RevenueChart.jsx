@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 
 const RevenueChart = ({ data }) => {
   const formatTooltip = (value, name) => {
-    const formattedValue = `££{(value / 1000)?.toFixed(0)}K`;
+    const formattedValue = `£${(value / 1000)?.toFixed(0)}K`;
     return [formattedValue, name === 'revenue' ? 'Actual Revenue' : 'Target Revenue'];
   };
 
@@ -29,7 +29,7 @@ const RevenueChart = ({ data }) => {
             <YAxis 
               stroke="#64748B"
               fontSize={12}
-              tickFormatter={(value) => `££{(value / 1000)?.toFixed(0)}K`}
+              tickFormatter={(value) => `£${(value / 1000)?.toFixed(0)}K`}
             />
             <Tooltip 
               formatter={formatTooltip}

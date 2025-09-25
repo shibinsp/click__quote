@@ -79,22 +79,22 @@ const CustomerInfoForm = ({ customerData, onCustomerDataChange, errors }) => {
           />
 
           <Input
-            label="State/Province"
+            label="County"
             type="text"
-            placeholder="Enter state"
-            value={customerData?.state || ''}
-            onChange={(e) => handleInputChange('state', e?.target?.value)}
-            error={errors?.state}
+            placeholder="Enter county"
+            value={customerData?.county || ''}
+            onChange={(e) => handleInputChange('county', e?.target?.value)}
+            error={errors?.county}
             required
           />
 
           <Input
-            label="ZIP/Postal Code"
+            label="Postcode"
             type="text"
-            placeholder="Enter ZIP code"
-            value={customerData?.zipCode || ''}
-            onChange={(e) => handleInputChange('zipCode', e?.target?.value)}
-            error={errors?.zipCode}
+            placeholder="Enter postcode"
+            value={customerData?.postcode || ''}
+            onChange={(e) => handleInputChange('postcode', e?.target?.value)}
+            error={errors?.postcode}
             required
           />
         </div>

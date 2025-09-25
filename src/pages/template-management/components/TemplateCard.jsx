@@ -79,7 +79,8 @@ const TemplateCard = ({ template, onUseTemplate, onEditTemplate, onDuplicateTemp
           onClick={() => onUseTemplate(template)}
           iconName="Play"
           iconPosition="left"
-          className="flex-1"
+          className="flex-1 animate-bounce-in hover-lift"
+          style={{ animationDelay: '0.7s' }}
         >
           Use Template
         </Button>
@@ -90,6 +91,8 @@ const TemplateCard = ({ template, onUseTemplate, onEditTemplate, onDuplicateTemp
           onClick={() => onDuplicateTemplate(template)}
           iconName="Copy"
           iconPosition="left"
+          className="animate-bounce-in hover-lift"
+          style={{ animationDelay: '0.8s' }}
         >
           Duplicate
         </Button>
@@ -99,6 +102,8 @@ const TemplateCard = ({ template, onUseTemplate, onEditTemplate, onDuplicateTemp
             variant="ghost"
             size="icon"
             onClick={() => onEditTemplate(template)}
+            className="animate-bounce-in hover-lift"
+            style={{ animationDelay: '0.9s' }}
           >
             <Icon name="Edit" size={16} />
           </Button>
@@ -109,7 +114,8 @@ const TemplateCard = ({ template, onUseTemplate, onEditTemplate, onDuplicateTemp
             variant="ghost"
             size="icon"
             onClick={() => onDeleteTemplate(template)}
-            className="text-error hover:text-error hover:bg-error/10"
+            className="text-error hover:text-error hover:bg-error/10 animate-bounce-in hover-lift"
+            style={{ animationDelay: '1.0s' }}
           >
             <Icon name="Trash2" size={16} />
           </Button>

@@ -46,8 +46,8 @@ const CreateQuotation = () => {
         name: `Location (${parseFloat(lat)?.toFixed(4)}, ${parseFloat(lng)?.toFixed(4)})`,
         address: '',
         city: '',
-        state: '',
-        zipCode: ''
+        county: '',
+    postcode: ''
       });
     }
 
@@ -126,8 +126,8 @@ const CreateQuotation = () => {
         if (!customerData?.phone?.trim()) newErrors.phone = 'Phone number is required';
         if (!customerData?.address?.trim()) newErrors.address = 'Address is required';
         if (!customerData?.city?.trim()) newErrors.city = 'City is required';
-        if (!customerData?.state?.trim()) newErrors.state = 'State is required';
-        if (!customerData?.zipCode?.trim()) newErrors.zipCode = 'ZIP code is required';
+        if (!customerData?.county?.trim()) newErrors.county = 'County is required';
+    if (!customerData?.postcode?.trim()) newErrors.postcode = 'Postcode is required';
         break;
 
       case 2: // Items

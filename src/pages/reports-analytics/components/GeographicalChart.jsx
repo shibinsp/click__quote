@@ -28,7 +28,7 @@ const GeographicalChart = ({ data }) => {
           <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
             <XAxis 
-              dataKey="zipcode" 
+              dataKey="postcode" 
               stroke="#64748B"
               fontSize={12}
             />

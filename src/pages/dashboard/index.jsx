@@ -9,8 +9,43 @@ import QuotationSearch from './components/QuotationSearch';
 
 const Dashboard = () => {
   const [userRole, setUserRole] = useState('Admin'); // Mock user role
+  
+  // Mock dashboard metrics
+  const mockMetrics = {
+    totalQuotations: {
+      value: 1847,
+      trend: 'up',
+      trendValue: '+15%',
+      color: 'primary'
+    },
+    submittedQuotations: {
+      value: 1205,
+      trend: 'up',
+      trendValue: '+23%',
+      color: 'success'
+    },
+    totalRevenue: {
+      value: '£2.4M',
+      trend: 'up',
+      trendValue: '+18%',
+      color: 'accent'
+    },
+    conversionRate: {
+      value: '68%',
+      trend: 'up',
+      trendValue: '+8%',
+      color: 'warning'
+    },
+    avgQuoteValue: {
+      value: '£12.5K',
+      trend: 'up',
+      trendValue: '+12%',
+      color: 'primary'
+    }
+  };
+
   const [dashboardData, setDashboardData] = useState({
-    metrics: {},
+    metrics: mockMetrics,
     recentQuotations: [],
     activities: []
   });
@@ -21,28 +56,6 @@ const Dashboard = () => {
     email: "sarah.johnson@clickquote.com",
     role: userRole,
     avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
-  };
-
-  // Mock dashboard metrics
-  const mockMetrics = {
-    totalQuotations: {
-      value: 247,
-      trend: 'up',
-      trendValue: '+12%',
-      color: 'primary'
-    },
-    submittedQuotations: {
-      value: 189,
-      trend: 'up',
-      trendValue: '+18%',
-      color: 'success'
-    },
-    totalRevenue: {
-      value: '£1.2M',
-      trend: 'up',
-      trendValue: '+25%',
-      color: 'accent'
-    }
   };
 
   // Mock recent quotations
@@ -212,6 +225,30 @@ const Dashboard = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-16">
+        {/* Hero Section */}
+        <div className="relative bg-gradient-to-br from-slate-800 via-slate-700 to-orange-600 overflow-hidden">
+          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="relative max-w-7xl mx-auto px-6 py-16">
+            <div className="text-center text-white">
+              <h1 className="text-5xl font-bold mb-4 animate-fade-in">
+                Click & Quote
+              </h1>
+              <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+                Reliable electrical solutions for your business needs. Get instant quotes and manage your power infrastructure efficiently.
+              </p>
+              
+
+            </div>
+          </div>
+          
+          {/* Animated Background Elements */}
+          <div className="absolute top-10 left-10 w-20 h-20 bg-orange-400/20 rounded-full animate-pulse"></div>
+          <div className="absolute top-32 right-20 w-16 h-16 bg-white/10 rounded-full animate-bounce"></div>
+          <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-orange-300/30 rounded-full animate-ping"></div>
+        </div>
+
+
+
         <div className="max-w-7xl mx-auto px-6 py-8">
           {/* Welcome Section */}
           <div className="mb-8">
@@ -229,56 +266,68 @@ const Dashboard = () => {
           </div>
 
           {/* Metrics Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <MetricsCard
-              title="Total Quotations"
-              value={dashboardData?.metrics?.totalQuotations?.value || 0}
-              icon="FileText"
-              trend={dashboardData?.metrics?.totalQuotations?.trend}
-              trendValue={dashboardData?.metrics?.totalQuotations?.trendValue}
-              color={dashboardData?.metrics?.totalQuotations?.color}
-            />
-            <MetricsCard
-              title="Submitted quotation"
-              value={dashboardData?.metrics?.submittedQuotations?.value || 0}
-              icon="CheckCircle"
-              trend={dashboardData?.metrics?.submittedQuotations?.trend}
-              trendValue={dashboardData?.metrics?.submittedQuotations?.trendValue}
-              color={dashboardData?.metrics?.submittedQuotations?.color}
-            />
-            <MetricsCard
-              title="Total Revenue"
-              value={dashboardData?.metrics?.totalRevenue?.value || '£0'}
-              icon="DollarSign"
-              trend={dashboardData?.metrics?.totalRevenue?.trend}
-              trendValue={dashboardData?.metrics?.totalRevenue?.trendValue}
-              color={dashboardData?.metrics?.totalRevenue?.color}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 animate-fade-in">
+            <div className="animate-bounce-in hover-lift" style={{ animationDelay: '0.1s' }}>
+              <MetricsCard
+                title="Total Quotations"
+                value={dashboardData?.metrics?.totalQuotations?.value || 0}
+                icon="FileText"
+                trend={dashboardData?.metrics?.totalQuotations?.trend}
+                trendValue={dashboardData?.metrics?.totalQuotations?.trendValue}
+                color={dashboardData?.metrics?.totalQuotations?.color}
+              />
+            </div>
+            <div className="animate-bounce-in hover-lift" style={{ animationDelay: '0.2s' }}>
+              <MetricsCard
+                title="Submitted quotation"
+                value={dashboardData?.metrics?.submittedQuotations?.value || 0}
+                icon="CheckCircle"
+                trend={dashboardData?.metrics?.submittedQuotations?.trend}
+                trendValue={dashboardData?.metrics?.submittedQuotations?.trendValue}
+                color={dashboardData?.metrics?.submittedQuotations?.color}
+              />
+            </div>
+            <div className="animate-bounce-in hover-lift" style={{ animationDelay: '0.3s' }}>
+              <MetricsCard
+                title="Total Revenue"
+                value={dashboardData?.metrics?.totalRevenue?.value || '£0'}
+                icon="DollarSign"
+                trend={dashboardData?.metrics?.totalRevenue?.trend}
+                trendValue={dashboardData?.metrics?.totalRevenue?.trendValue}
+                color={dashboardData?.metrics?.totalRevenue?.color}
+              />
+            </div>
           </div>
 
           {/* Quick Actions */}
-          <div className="mb-8">
+          <div className="mb-8 animate-slide-in-right" style={{ animationDelay: '0.4s' }}>
             <QuickActions userRole={currentUser?.role} />
           </div>
 
           {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-fade-in" style={{ animationDelay: '0.5s' }}>
             {/* Left Column - Main Content */}
             <div className="lg:col-span-2 space-y-8">
               {/* Recent Quotations Table */}
-              <RecentQuotationsTable 
-                quotations={dashboardData?.recentQuotations}
-                userRole={currentUser?.role}
-              />
+              <div className="animate-bounce-in" style={{ animationDelay: '0.6s' }}>
+                <RecentQuotationsTable 
+                  quotations={dashboardData?.recentQuotations}
+                  userRole={currentUser?.role}
+                />
+              </div>
             </div>
 
             {/* Right Column - Sidebar */}
             <div className="space-y-8">
               {/* Search Quotations */}
-              <QuotationSearch onSearch={handleSearch} />
+              <div className="animate-slide-in-left" style={{ animationDelay: '0.7s' }}>
+                <QuotationSearch onSearch={handleSearch} />
+              </div>
 
               {/* Activity Log */}
-              <ActivityLog activities={dashboardData?.activities} />
+              <div className="animate-slide-in-left" style={{ animationDelay: '0.8s' }}>
+                <ActivityLog activities={dashboardData?.activities} />
+              </div>
             </div>
           </div>
         </div>

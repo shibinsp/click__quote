@@ -61,7 +61,7 @@ class ReportWithDetails(Report):
 
 class AnalyticsFilter(BaseModel):
     date_range: Optional[str] = "30days"  # 7days, 30days, 90days, 1year
-    zipcode: Optional[str] = "all"
+    postcode: Optional[str] = "all"
     status: Optional[str] = "all"
     template: Optional[str] = "all"
     user_id: Optional[int] = None

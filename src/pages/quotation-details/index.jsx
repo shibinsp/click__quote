@@ -3,7 +3,7 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import Header from '../../components/ui/Header';
 import LocationBreadcrumb from '../../components/ui/LocationBreadcrumb';
 import QuotationHeader from './components/QuotationHeader';
-import QuotationDocument from './components/QuotationDocument';
+import MultiPageTemplateEditor from './components/MultiPageTemplateEditor';
 import AdminApprovalPanel from './components/AdminApprovalPanel';
 import QuotationMetadata from './components/QuotationMetadata';
 import ActivityHistory from './components/ActivityHistory';
@@ -290,7 +290,7 @@ const QuotationDetails = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-6">
-              <QuotationDocument quotation={quotation} />
+              <MultiPageTemplateEditor quotation={quotation} />
               
               {userRole === 'Admin' && (
                 <AdminApprovalPanel

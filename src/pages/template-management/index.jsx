@@ -340,46 +340,51 @@ const TemplateManagement = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Page Header */}
           <div className="mb-8">
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-2">
+            <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-2 animate-fade-in">
               <span>Dashboard</span>
               <Icon name="ChevronRight" size={14} />
               <span className="text-foreground">Template Management</span>
             </div>
-            <h1 className="text-3xl font-bold text-foreground">Template Management</h1>
-            <p className="text-muted-foreground mt-2">
+            <h1 className="text-3xl font-bold text-foreground animate-fade-in" style={{animationDelay: '0.1s'}}>Template Management</h1>
+            <p className="text-muted-foreground mt-2 animate-slide-in-right" style={{animationDelay: '0.2s'}}>
               Create, manage, and organize quotation templates for streamlined workflow
             </p>
           </div>
 
           {/* Template Statistics */}
-          <TemplateStats templates={templates} userRole={userRole} />
+          <div className="animate-bounce-in" style={{animationDelay: '0.3s'}}>
+            <TemplateStats templates={templates} userRole={userRole} />
+          </div>
 
           {/* Template Filters */}
-          <TemplateFilters
-            filters={filters}
-            onFiltersChange={setFilters}
-            onCreateNew={handleCreateNew}
-            onClearFilters={handleClearFilters}
-            templateCount={filteredTemplates?.length}
-          />
+          <div className="animate-slide-in-right card-modern" style={{animationDelay: '0.4s'}}>
+            <TemplateFilters
+              filters={filters}
+              onFiltersChange={setFilters}
+              onCreateNew={handleCreateNew}
+              onClearFilters={handleClearFilters}
+              templateCount={filteredTemplates?.length}
+            />
+          </div>
 
           {/* Templates Grid */}
           {filteredTemplates?.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {filteredTemplates?.map(template => (
-                <TemplateCard
-                  key={template?.id}
-                  template={template}
-                  onUseTemplate={handleUseTemplate}
-                  onEditTemplate={handleEditTemplate}
-                  onDuplicateTemplate={handleDuplicateTemplate}
-                  onDeleteTemplate={handleDeleteTemplate}
-                  userRole={userRole}
-                />
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 animate-fade-in" style={{animationDelay: '0.5s'}}>
+              {filteredTemplates?.map((template, index) => (
+                <div key={template?.id} className="animate-bounce-in hover-lift" style={{animationDelay: `${0.6 + index * 0.1}s`}}>
+                  <TemplateCard
+                    template={template}
+                    onUseTemplate={handleUseTemplate}
+                    onEditTemplate={handleEditTemplate}
+                    onDuplicateTemplate={handleDuplicateTemplate}
+                    onDeleteTemplate={handleDeleteTemplate}
+                    userRole={userRole}
+                  />
+                </div>
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
+            <div className="text-center py-12 animate-fade-in" style={{animationDelay: '0.5s'}}>
               <Icon name="FileText" size={64} className="text-muted-foreground mx-auto mb-4" />
               <h3 className="text-lg font-medium text-foreground mb-2">No templates found</h3>
               <p className="text-muted-foreground mb-6">
@@ -392,6 +397,8 @@ const TemplateManagement = () => {
                   onClick={handleCreateNew}
                   iconName="Plus"
                   iconPosition="left"
+                  className="animate-bounce-in hover-lift"
+                  style={{animationDelay: '0.7s'}}
                 >
                   Create Your First Template
                 </Button>

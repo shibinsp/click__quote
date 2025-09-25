@@ -39,8 +39,8 @@ const ReportsTable = ({ reports, onExport }) => {
   };
 
   return (
-    <div className="bg-card border border-border rounded-lg shadow-elevation-1">
-      <div className="p-6 border-b border-border">
+    <div className="bg-card border border-border rounded-lg shadow-elevation-1 animate-fade-in">
+      <div className="p-6 border-b border-border animate-slide-down">
         <h3 className="text-lg font-semibold text-foreground mb-2">
           Generated Reports
         </h3>
@@ -49,7 +49,7 @@ const ReportsTable = ({ reports, onExport }) => {
         </p>
       </div>
       
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto animate-slide-up" style={{ animationDelay: '200ms' }}>
         <table className="w-full">
           <thead className="bg-muted/50">
             <tr>
@@ -74,8 +74,12 @@ const ReportsTable = ({ reports, onExport }) => {
             </tr>
           </thead>
           <tbody className="divide-y divide-border">
-            {reports?.map((report) => (
-              <tr key={report?.id} className="hover:bg-muted/30 transition-hover">
+            {reports?.map((report, index) => (
+              <tr 
+                key={report?.id} 
+                className="hover:bg-muted/30 transition-all duration-300 animate-slide-right"
+                style={{ animationDelay: `${300 + (index * 100)}ms` }}
+              >
                 <td className="px-6 py-4">
                   <div className="flex items-center space-x-3">
                     <Icon name="FileText" size={16} className="text-muted-foreground" />

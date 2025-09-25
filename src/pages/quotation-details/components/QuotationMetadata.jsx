@@ -4,7 +4,7 @@ import RoleIndicatorBadge from '../../../components/ui/RoleIndicatorBadge';
 
 const QuotationMetadata = ({ quotation }) => {
   const formatDate = (date) => {
-    return new Date(date)?.toLocaleDateString('en-US', {
+    return new Date(date)?.toLocaleDateString('en-GB', {
       year: 'numeric',
       month: 'short',
       day: 'numeric',
@@ -50,7 +50,7 @@ const QuotationMetadata = ({ quotation }) => {
           <div className="flex items-center justify-between py-2 border-b border-border">
             <span className="text-sm text-muted-foreground">Valid Until</span>
             <span className="text-sm font-medium">
-              {new Date(quotation.validUntil)?.toLocaleDateString('en-US')}
+              {new Date(quotation.validUntil)?.toLocaleDateString('en-GB')}
             </span>
           </div>
 

@@ -24,7 +24,7 @@ const QuotationPreview = ({
   };
 
   const formatDate = (date) => {
-    return new Date(date)?.toLocaleDateString('en-US', {
+    return new Date(date)?.toLocaleDateString('en-GB', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -88,9 +88,9 @@ const QuotationPreview = ({
                   <p className="font-medium text-foreground">{customerData?.name || 'Customer Name'}</p>
                   {customerData?.company && <p>{customerData?.company}</p>}
                   <p>{customerData?.address || 'Customer Address'}</p>
-                  <p>{customerData?.city && customerData?.state && customerData?.zipCode ? 
-                    `${customerData?.city}, ${customerData?.state} ${customerData?.zipCode}` : 
-                    'City, State ZIP'}</p>
+                  <p>{customerData?.city && customerData?.county && customerData?.postcode ?
+                  `${customerData?.city}, ${customerData?.county} ${customerData?.postcode}` :
+                  'City, County Postcode'}</p>
                   <p>Phone: {customerData?.phone || 'Phone Number'}</p>
                   <p>Email: {customerData?.email || 'email@example.com'}</p>
                 </div>

@@ -1110,7 +1110,7 @@ const MapView = () => {
       // Show success notification
       setSearchNotification({
         type: 'success',
-        message: `Found: ${location?.zipcode || location?.name}`
+        message: `Found: ${location?.postcode || location?.name}`
       });
       
       // Clear notification after 3 seconds

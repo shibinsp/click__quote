@@ -1,0 +1,776 @@
+{
+  "total_paragraphs": 107,
+  "total_characters": 13454,
+  "pages": {
+    "1": [
+      {
+        "index": 0,
+        "text": "Registered Office\tCompany:",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 26
+      },
+      {
+        "index": 1,
+        "text": "Newington House\tUK Power Networks 237 Southwark Bridge Road (Operations) Limited London SE1 6NP",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 95
+      },
+      {
+        "index": 3,
+        "text": "Registered in England and Wales No: 3870728",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 43
+      },
+      {
+        "index": 8,
+        "text": "Dear Ali",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 8
+      },
+      {
+        "index": 10,
+        "text": "Site Address: Elephant Road / London SE17 1AY",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 45
+      },
+      {
+        "index": 11,
+        "text": "I am writing to you on behalf of London Power Networks plc the licensed distributor of electricity for the above address trading as and referred to in the Quote as “UK Power Networks”. Thank you for your recent enquiry regarding the above site. I am pleased to be able to provide you with this Quote to carry out the work requested.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 332
+      },
+      {
+        "index": 12,
+        "text": "The Works will enable the provision of an import capacity of 555.000 kVA,. and a maximum export capacity of KW.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 111
+      }
+    ],
+    "2": [
+      {
+        "index": 13,
+        "text": "Summary of Your Request",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 23
+      },
+      {
+        "index": 14,
+        "text": "New services for 6 onsite commercial units within archways.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 59
+      },
+      {
+        "index": 15,
+        "text": "UK Power Networks would like to carry out all of the requested work for you. However, other companies can do some or all of the work for you; these are known as Independent Connection Providers (ICPs). You can approach NERS accredited ICPs directly, or you can approach an Independent Distribution Network Operator (IDNO) to request this work and they will arrange for an ICP to carry out the Contestable Works. To find out more about which ICPs work in our area and what work they can undertake please click here.",
+        "is_bold": true,
+        "is_italic": false,
+        "length": 514
+      },
+      {
+        "index": 16,
+        "text": "To give you as much choice as possible we are able to offer you the following options for getting your work done:",
+        "is_bold": true,
+        "is_italic": false,
+        "length": 113
+      },
+      {
+        "index": 20,
+        "text": "A short guide is available to help you understand the three different Prices (options A, B and C). To see this guide please click here.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 135
+      }
+    ],
+    "3": [],
+    "4": [
+      {
+        "index": 22,
+        "text": "Provisional Price",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 17
+      },
+      {
+        "index": 23,
+        "text": "I would like to draw to your attention to the provisional nature of the Quote. At the date of issue, the detailed design",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 120
+      },
+      {
+        "index": 25,
+        "text": "and/or the procurement process is not complete and the proposed design is dependent on securing Consents and Land Rights that have not yet been obtained from third parties. We will notify you in writing if the Works, the completion date or the Price need to be adjusted once the detailed design and the procurement process is complete and the Consents and Land Rights have been obtained.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 387
+      },
+      {
+        "index": 26,
+        "text": "Terms and Conditions",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 20
+      },
+      {
+        "index": 27,
+        "text": "The Quote is subject to version 7 (September 2016) of our Terms and Conditions For Connection and Diversionary Works (the “Terms and Conditions”) which you can view here. Alternatively, please let me know if you would like me to send you a copy in the post. The Terms and Conditions create legally binding obligations and, amongst other things, contain caps and exclusions on UK Power Networks’ liability to you and grounds for variation and termination. Therefore, it is important that you take the time to read and understand them. They also contain definitions of terms used in this document and in the linked pages on our website, which you may find helpful such as “DNO” and “DNO Works”.",
+        "is_bold": true,
+        "is_italic": false,
+        "length": 692
+      },
+      {
+        "index": 28,
+        "text": "Special Conditions",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 18
+      },
+      {
+        "index": 29,
+        "text": "The Quote is subject to and conditional upon the following conditions:-",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 71
+      },
+      {
+        "index": 30,
+        "text": "You are under an obligation to provide the required Planning Permissions (if applicable) for Your Works, associated plans, reports and documents with the Planning Permission (for example landscaping plans) and to keep the DNO informed of any changes to the same throughout the Works.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 283
+      },
+      {
+        "index": 31,
+        "text": "All onsite groundworks are the responsibility of the customer",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 61
+      },
+      {
+        "index": 32,
+        "text": "the customer is to provide access and on-site parking",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 53
+      },
+      {
+        "index": 33,
+        "text": "it is assumed all works are within site boundary.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 49
+      },
+      {
+        "index": 34,
+        "text": "This quotation is provisional based on the completion of works under 820005221",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 78
+      },
+      {
+        "index": 37,
+        "text": "Compliance with Engineering Recommendations P28, P29 and G5/5",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 61
+      }
+    ],
+    "5": [
+      {
+        "index": 38,
+        "text": "If this Quote provides for export capacity (that may include install solar panels or battery storage) or import capacity with disturbing loads (that may include electric vehicle charging), you will be responsible for compliance with Engineering Recommendations P28, P29 and G5/5. More information about these Recommendations can be found here.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 343
+      },
+      {
+        "index": 39,
+        "text": "You may be asked to demonstrate compliance with Engineering Recommendations P28, P29 and/or G5/5.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 97
+      },
+      {
+        "index": 40,
+        "text": "UK Power Networks may refuse to allow connection of generation to our network where compliance cannot be demonstrated. Where the installation needs to be Witness Tested compliance reports will need to be provided in advance of booking a date for the Witness Test to be undertaken.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 280
+      },
+      {
+        "index": 43,
+        "text": "When can you expect your electricity connection?",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 48
+      },
+      {
+        "index": 44,
+        "text": "Once you have accepted the Quote we will call you to discuss a programme of Works. Subject to the terms of the Quote, the DNO Works referred to in the Quote will be completed on or before 31 January 2025.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 204
+      },
+      {
+        "index": 45,
+        "text": "We will try to meet your requested dates wherever possible but the completion date will be dependent on: The date that the Quote is accepted;",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 141
+      },
+      {
+        "index": 46,
+        "text": "How much of the Works you wish UK Power Networks to complete;",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 61
+      },
+      {
+        "index": 47,
+        "text": "Any further discussions we may have with you regarding the programming of the DNO Works;",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 88
+      },
+      {
+        "index": 48,
+        "text": "The completion of work by other people or companies that must be done before we can complete our DNO Works;",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 107
+      },
+      {
+        "index": 49,
+        "text": "Approval of your design and programme for the Contestable Works by UK Power Networks (if applicable);",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 101
+      },
+      {
+        "index": 50,
+        "text": "Obtaining full access to the Site;",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 34
+      },
+      {
+        "index": 51,
+        "text": "UK Power Networks obtaining all necessary Consents and Land Rights in a timely manner;",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 86
+      },
+      {
+        "index": 52,
+        "text": "Any delay to the Works due to: unplanned outages (i.e. breakdown or failure of electric power); or availability of planned outages (i.e. temporary suspension or withdrawal of electric power) to carry out certain works on",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 220
+      },
+      {
+        "index": 71,
+        "text": "If you would like to accept the Quote you will need to ensure that the requested payment is in UK Power Networks’ nominated bank account in full and cleared funds and that we have received your signed Acceptance Form from section 5 below by 5pm on 17 March 2025.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 262
+      },
+      {
+        "index": 149,
+        "text": "Section\tAcceptance Form",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 23
+      },
+      {
+        "index": 159,
+        "text": "Email: ConnectionAcceptance@ukpowernetworks.co.uk",
+        "is_bold": true,
+        "is_italic": false,
+        "length": 49
+      },
+      {
+        "index": 171,
+        "text": "Your Acceptance",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 15
+      },
+      {
+        "index": 173,
+        "text": "To accept the Quote, the signed Acceptance Form and payment in cleared funds must reach UK Power Networks by 5pm on 17 March 2025. Acceptance Forms and payments received after this date may be returned and you will need to request a new Quote.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 243
+      },
+      {
+        "index": 182,
+        "text": "Acceptance Form Part 2",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 22
+      }
+    ],
+    "6": [
+      {
+        "index": 54,
+        "text": "UK Power Networks’ distribution system;",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 39
+      },
+      {
+        "index": 55,
+        "text": "Completion of all cable route feasibility studies;",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 50
+      },
+      {
+        "index": 56,
+        "text": "All conditions precedent being met by you and/or your appointed ICP where applicable;",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 85
+      },
+      {
+        "index": 57,
+        "text": "Your Site being ready for energisation before the target energisation date; and",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 79
+      },
+      {
+        "index": 58,
+        "text": "Energisation falling suitably within the outage period.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 55
+      },
+      {
+        "index": 59,
+        "text": "Indicative mobilisation and delivery timeline",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 45
+      },
+      {
+        "index": 60,
+        "text": "Please find attached a generic indicative mobilisation and delivery timeline for a typical project of this type. This provides a generic indication of the approximate usual time taken to undertake the activities described in the timeline. This timeline is provided as a generic guide only and is subject to change so you should not consider it as the actual programme of works. Any reliance that you place on this indicative timeline is at your own risk.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 454
+      },
+      {
+        "index": 62,
+        "text": "Interactivity",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 13
+      },
+      {
+        "index": 63,
+        "text": "UK Power Networks has not received a request from any other customer for connections to the same part of our Distribution System, but to find out what happens if they do, please click here.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 189
+      },
+      {
+        "index": 64,
+        "text": "Variation of Works",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 18
+      },
+      {
+        "index": 65,
+        "text": "If there is a variation to the scope of the Works where the Price is expected to increase, then an additional payment will be due. Your on-site representative, who must have your authorisation to agree variation to the Works, will be asked to sign a variation form or send an email agreeing to this variation. If this is not received, then this could result in a delay to the Works and further charges due to remobilising of resources to complete the Works.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 457
+      },
+      {
+        "index": 67,
+        "text": "Please note that subject to any variations and changes to the Price as a result of other conditions set out in the Quote, the Price as identified in the Quote will remain valid for 12 months from the date of acceptance of the Quote. As stated in clause 6.2.3 of the Terms and Conditions, any DNO Works delivered after this date may be subject to a variation in Price reflecting any increase in Costs that will be incurred by UK Power Networks to deliver the DNO Works.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 468
+      },
+      {
+        "index": 68,
+        "text": "What you need to do next",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 24
+      },
+      {
+        "index": 72,
+        "text": "If you would like UK Power Networks to carry out all of the Contestable Works and Non-Contestable Works please accept option A. If you would prefer to use an ICP to carry out the Contestable Work (or an IDNO to arrange for an ICP to carry out the Contestable Works), you can pass the Quote to them and they can accept either option B or option C. Alternatively, you can accept option B or option C yourself, but you will need to ensure that your appointed ICP or IDNO understands what they must do, and what UK Power Networks will do for these options. You can only accept one option.",
+        "is_bold": true,
+        "is_italic": false,
+        "length": 584
+      },
+      {
+        "index": 129,
+        "text": "Section \tYour Responsibilities",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 30
+      },
+      {
+        "index": 133,
+        "text": "Job Specific Responsibilities",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 29
+      },
+      {
+        "index": 153,
+        "text": "Please return your completed form by post or email:",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 51
+      },
+      {
+        "index": 172,
+        "text": "I accept UK Power Networks’ Quote for carrying out the DNO Works in accordance with the option I have chosen overleaf.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 118
+      },
+      {
+        "index": 180,
+        "text": "Job Reference: 8500308260 / 3500196138",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 38
+      },
+      {
+        "index": 183,
+        "text": "Land Rights",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 11
+      }
+    ],
+    "7": [
+      {
+        "index": 69,
+        "text": "Before you decide to proceed it is very important that you take note of our Terms and Conditions, any special conditions detailed above as well as the details in Your Information Pack including the information contained within the hyperlinked text, all of which constitute the Quote.",
+        "is_bold": true,
+        "is_italic": false,
+        "length": 283
+      },
+      {
+        "index": 73,
+        "text": "Do you need more information?",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 29
+      },
+      {
+        "index": 74,
+        "text": "If you have any questions about the Quote or need more information, please do not hesitate to contact me. Yours sincerely",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 121
+      },
+      {
+        "index": 77,
+        "text": "Paul Reddy",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 10
+      },
+      {
+        "index": 80,
+        "text": "Mobile:\t07812 262 754",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 21
+      },
+      {
+        "index": 81,
+        "text": "Email:\tpaul.reddy@ukpowernetworks.co.uk",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 39
+      },
+      {
+        "index": 85,
+        "text": "To download your free safety leaflets and resources visit",
+        "is_bold": true,
+        "is_italic": false,
+        "length": 57
+      },
+      {
+        "index": 86,
+        "text": "UK Power Networks - Safety Page",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 31
+      },
+      {
+        "index": 99,
+        "text": "Section  Scope of Works",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 23
+      },
+      {
+        "index": 130,
+        "text": "This section provides information about the work that you are responsible for should you accept the Quote.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 106
+      },
+      {
+        "index": 131,
+        "text": "We have made all of our general information about your responsibilities available in our Knowledge Centre on our internet site at www.ukpowernetworks.co.uk. Links to each of the relevant articles are in the table below.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 219
+      },
+      {
+        "index": 132,
+        "text": "Please let me know if you think we can improve the information we have provided.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 80
+      },
+      {
+        "index": 135,
+        "text": "Generic Responsibilities Applicable to all Quotes",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 49
+      },
+      {
+        "index": 138,
+        "text": "Section  Information to Help You Plan For Your Work",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 51
+      },
+      {
+        "index": 154,
+        "text": "UK Power Networks (Operations) Ltd Connections Finance, 3rd Floor Energy House",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 78
+      },
+      {
+        "index": 184,
+        "text": "If you are appointing a Solicitor to complete any legal work associated with acquiring substation sites and easements work, please provide UK Power Networks with their details by completing the table below.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 206
+      }
+    ],
+    "8": [
+      {
+        "index": 100,
+        "text": "Please read the details in this section in conjunction with the customer proposal plan (referred to in the Drawing Schedule in Section 4).",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 138
+      },
+      {
+        "index": 103,
+        "text": "Your Connections",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 16
+      },
+      {
+        "index": 104,
+        "text": "The table below provides a summary of the technical characteristics and the connection types you have requested:",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 112
+      },
+      {
+        "index": 107,
+        "text": "Phases of work",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 14
+      },
+      {
+        "index": 108,
+        "text": "Our delivery time scale of the DNO Works may be subject to our performance standards, as detailed in 'Our Connections Standards of Performance' leaflet that can be found here. The standards make reference to the DNO Works in totality, including the delivery of the work that you may request to be completed in discrete parts (which are referred to as phases). The Quote covers 1 phase(s) of work.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 396
+      },
+      {
+        "index": 110,
+        "text": "Section \tCost Breakdown",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 23
+      },
+      {
+        "index": 111,
+        "text": "Totals",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 6
+      },
+      {
+        "index": 114,
+        "text": "Breakdown of Costs",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 18
+      },
+      {
+        "index": 116,
+        "text": "Domestic Reverse Charge VAT Rate",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 32
+      },
+      {
+        "index": 117,
+        "text": "You may be aware of a VAT rate, effective from 1st March 2021, that is referred to as “Domestic Reverse Charge for Construction Services”. I would like to provide you with some clarification about how the Quote is affected.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 223
+      },
+      {
+        "index": 118,
+        "text": "Section 18 of the HMRC Guidance, which explains the reverse charge treatment for utilities states that “Services provided by utility businesses which do not fall within the domestic reverse charge include the:",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 209
+      },
+      {
+        "index": 119,
+        "text": "provision of a connection to a utility network, or diversionary works to allow the relocation of the network",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 108
+      },
+      {
+        "index": 120,
+        "text": "development and construction of a private network to be owned by the utility and leased or sold to the customer",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 111
+      },
+      {
+        "index": 122,
+        "text": "installation of a boiler (and ancillary supplies)”",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 50
+      },
+      {
+        "index": 123,
+        "text": "You can see the Government’s guidance in full here. So in summary, although UK Power Networks is registered under the Construction Industry Scheme (CIS), the provision of connection services to our customers is not regarded as construction services because the work is performed on our own assets. Consequently, there will be no change to the way in which we determine how VAT is applied to this job.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 400
+      },
+      {
+        "index": 125,
+        "text": "Provision of Service to Build IDNO Networks and VAT",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 51
+      },
+      {
+        "index": 126,
+        "text": "The VAT Rate applied to this job is applicable where UK Power Networks completes all the work (Option A). If you wish to accept Option B or C (where offered) and wish to approach an IDNO to arrange for the Contestable Works to be undertaken (see summary on page 1) the VAT Rate may change and we will issue an invoice to you for the outstanding VAT.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 349
+      },
+      {
+        "index": 127,
+        "text": "Please note that payment is required in full, in advance of the work being programmed.",
+        "is_bold": true,
+        "is_italic": false,
+        "length": 86
+      },
+      {
+        "index": 139,
+        "text": "Drawing Schedule",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 16
+      },
+      {
+        "index": 140,
+        "text": "The table below shows a summary of the standard drawings that may be useful for the Quote, along with hyperlinks to the drawings that are currently applicable. Our drawings are revised periodically so the links in the table below may not work in the future if the drawings are superseded. However the latest versions of all of our standard drawings can be found here. If you have not used our G81 web pages before you will be asked to register your credentials for future logins and updates.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 491
+      },
+      {
+        "index": 143,
+        "text": "Job Specific Information",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 24
+      },
+      {
+        "index": 145,
+        "text": "Generic Information Applicable to all Quotes",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 44
+      },
+      {
+        "index": 147,
+        "text": "If you are unhappy with our service please follow our Complaints Procedure Specific to Commercial and Industrial Projects which can be found here. This document details your right to contact Ofgem for a formal determination if we have been unable to resolve the matter to your satisfaction.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 290
+      },
+      {
+        "index": 155,
+        "text": "Hazelwick Avenue",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 16
+      },
+      {
+        "index": 156,
+        "text": "Three Bridges, Crawley, RH10 1EX",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 32
+      },
+      {
+        "index": 185,
+        "text": "Please also provide us with the name and address of the owner of any affected land.",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 83
+      },
+      {
+        "index": 188,
+        "text": "Job Reference: 8500308260 / 3500196138",
+        "is_bold": false,
+        "is_italic": false,
+        "length": 38
+      }
+    ],
+    "9": [],
+    "10": [],
+    "11": [],
+    "12": [],
+    "13": [],
+    "14": []
+  }
+}

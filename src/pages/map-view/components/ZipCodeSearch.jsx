@@ -8,67 +8,8 @@ const ZipCodeSearch = ({ onLocationFound, onSearchError }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Comprehensive postal codes with coordinates for demo purposes (US zip codes and UK postcodes)
+  // UK Postcodes only - comprehensive list for UK client
   const samplePostalCodes = [
-    // Major US cities and zip codes
-    { code: '10001', lat: 40.7505, lng: -73.9934, name: 'New York, NY - Midtown', type: 'zipcode' },
-    { code: '10002', lat: 40.7157, lng: -73.9860, name: 'New York, NY - Lower East Side', type: 'zipcode' },
-    { code: '10003', lat: 40.7316, lng: -73.9890, name: 'New York, NY - East Village', type: 'zipcode' },
-    { code: '90210', lat: 34.0901, lng: -118.4065, name: 'Beverly Hills, CA', type: 'zipcode' },
-    { code: '90211', lat: 34.0736, lng: -118.4004, name: 'Beverly Hills, CA - South', type: 'zipcode' },
-    { code: '90212', lat: 34.1030, lng: -118.4107, name: 'Beverly Hills, CA - North', type: 'zipcode' },
-    { code: '60601', lat: 41.8827, lng: -87.6233, name: 'Chicago, IL - Loop', type: 'zipcode' },
-    { code: '60602', lat: 41.8781, lng: -87.6298, name: 'Chicago, IL - Downtown', type: 'zipcode' },
-    { code: '60603', lat: 41.8781, lng: -87.6298, name: 'Chicago, IL - Grant Park', type: 'zipcode' },
-
-    // Florida
-    { code: '33101', lat: 25.7617, lng: -80.1918, name: 'Miami, FL - Downtown', type: 'zipcode' },
-    { code: '33102', lat: 25.7743, lng: -80.1937, name: 'Miami, FL - Midtown', type: 'zipcode' },
-    { code: '33103', lat: 25.7907, lng: -80.1300, name: 'Miami, FL - Upper East Side', type: 'zipcode' },
-    
-    // Massachusetts
-    { code: '02101', lat: 42.3601, lng: -71.0589, name: 'Boston, MA - Downtown', type: 'zipcode' },
-    { code: '02102', lat: 42.3584, lng: -71.0598, name: 'Boston, MA - Financial District', type: 'zipcode' },
-    { code: '02103', lat: 42.3584, lng: -71.0598, name: 'Boston, MA - North End', type: 'zipcode' },
-    
-    // Washington
-    { code: '98101', lat: 47.6062, lng: -122.3321, name: 'Seattle, WA - Downtown', type: 'zipcode' },
-    { code: '98102', lat: 47.6205, lng: -122.3212, name: 'Seattle, WA - Capitol Hill', type: 'zipcode' },
-    { code: '98103', lat: 47.6694, lng: -122.3414, name: 'Seattle, WA - Fremont', type: 'zipcode' },
-
-    // Texas
-    { code: '75201', lat: 32.7767, lng: -96.7970, name: 'Dallas, TX - Downtown', type: 'zipcode' },
-    { code: '75202', lat: 32.7831, lng: -96.8067, name: 'Dallas, TX - Arts District', type: 'zipcode' },
-    { code: '75203', lat: 32.7668, lng: -96.8147, name: 'Dallas, TX - Oak Cliff', type: 'zipcode' },
-    { code: '77001', lat: 29.7604, lng: -95.3698, name: 'Houston, TX - Downtown', type: 'zipcode' },
-    { code: '77002', lat: 29.7633, lng: -95.3633, name: 'Houston, TX - Midtown', type: 'zipcode' },
-    { code: '77003', lat: 29.7372, lng: -95.3414, name: 'Houston, TX - Third Ward', type: 'zipcode' },
-    
-    // Arizona
-    { code: '85001', lat: 33.4484, lng: -112.0740, name: 'Phoenix, AZ - Downtown', type: 'zipcode' },
-    { code: '85002', lat: 33.4734, lng: -112.0596, name: 'Phoenix, AZ - Midtown', type: 'zipcode' },
-    { code: '85003', lat: 33.4255, lng: -112.0664, name: 'Phoenix, AZ - South Phoenix', type: 'zipcode' },
-
-    // Georgia
-    { code: '30301', lat: 33.7490, lng: -84.3880, name: 'Atlanta, GA - Downtown', type: 'zipcode' },
-    { code: '30302', lat: 33.7537, lng: -84.3901, name: 'Atlanta, GA - Midtown', type: 'zipcode' },
-    { code: '30303', lat: 33.7490, lng: -84.3880, name: 'Atlanta, GA - Capitol Hill', type: 'zipcode' },
-    
-    // Colorado
-    { code: '80201', lat: 39.7392, lng: -104.9903, name: 'Denver, CO - Downtown', type: 'zipcode' },
-    { code: '80202', lat: 39.7517, lng: -104.9903, name: 'Denver, CO - Capitol Hill', type: 'zipcode' },
-    { code: '80203', lat: 39.7236, lng: -104.9542, name: 'Denver, CO - Glendale', type: 'zipcode' },
-
-    // Pennsylvania
-    { code: '19101', lat: 39.9526, lng: -75.1652, name: 'Philadelphia, PA - Center City', type: 'zipcode' },
-    { code: '19102', lat: 39.9526, lng: -75.1652, name: 'Philadelphia, PA - Rittenhouse Square', type: 'zipcode' },
-    { code: '19103', lat: 39.9526, lng: -75.1652, name: 'Philadelphia, PA - University City', type: 'zipcode' },
-    
-    // Washington DC
-    { code: '20001', lat: 38.9072, lng: -77.0369, name: 'Washington, DC - Downtown', type: 'zipcode' },
-    { code: '20002', lat: 38.9072, lng: -77.0369, name: 'Washington, DC - Capitol Hill', type: 'zipcode' },
-    { code: '20003', lat: 38.8816, lng: -76.9947, name: 'Washington, DC - Navy Yard', type: 'zipcode' },
-
     // UK Postcodes - London
     { code: 'E17DB', lat: 51.5074, lng: -0.1278, name: 'London - City of London', type: 'postcode' },
     { code: 'SW1A 1AA', lat: 51.5014, lng: -0.1419, name: 'London - Buckingham Palace', type: 'postcode' },
@@ -80,18 +21,57 @@ const ZipCodeSearch = ({ onLocationFound, onSearchError }) => {
     { code: 'E14 5AB', lat: 51.5074, lng: -0.0278, name: 'London - Canary Wharf', type: 'postcode' },
     { code: 'SW7 2DD', lat: 51.4994, lng: -0.1746, name: 'London - South Kensington', type: 'postcode' },
     { code: 'NW1 6XE', lat: 51.5264, lng: -0.1381, name: 'London - Regent\'s Park', type: 'postcode' },
+    { code: 'SW1W 0DT', lat: 51.4975, lng: -0.1357, name: 'London - Victoria', type: 'postcode' },
+    { code: 'E1 6AN', lat: 51.5118, lng: -0.0755, name: 'London - Whitechapel', type: 'postcode' },
+    { code: 'W2 1NY', lat: 51.5154, lng: -0.1755, name: 'London - Paddington', type: 'postcode' },
+    { code: 'SW3 4SX', lat: 51.4925, lng: -0.1615, name: 'London - Chelsea', type: 'postcode' },
+    { code: 'NW3 2QG', lat: 51.5486, lng: -0.1678, name: 'London - Hampstead', type: 'postcode' },
 
     // UK Postcodes - Other major cities
     { code: 'M1 4ET', lat: 53.4808, lng: -2.2426, name: 'Manchester - City Centre', type: 'postcode' },
+    { code: 'M2 3WQ', lat: 53.4839, lng: -2.2446, name: 'Manchester - Northern Quarter', type: 'postcode' },
+    { code: 'M3 4LZ', lat: 53.4794, lng: -2.2451, name: 'Manchester - Castlefield', type: 'postcode' },
     { code: 'B1 1AA', lat: 52.4862, lng: -1.8904, name: 'Birmingham - City Centre', type: 'postcode' },
+    { code: 'B2 4QA', lat: 52.4796, lng: -1.9026, name: 'Birmingham - Jewellery Quarter', type: 'postcode' },
+    { code: 'B3 1JJ', lat: 52.4862, lng: -1.8904, name: 'Birmingham - Digbeth', type: 'postcode' },
     { code: 'G1 2FF', lat: 55.8642, lng: -4.2518, name: 'Glasgow - City Centre', type: 'postcode' },
+    { code: 'G2 3BZ', lat: 55.8611, lng: -4.2570, name: 'Glasgow - Merchant City', type: 'postcode' },
+    { code: 'G3 7DA', lat: 55.8689, lng: -4.2827, name: 'Glasgow - Finnieston', type: 'postcode' },
     { code: 'LS1 4DY', lat: 53.8008, lng: -1.5491, name: 'Leeds - City Centre', type: 'postcode' },
+    { code: 'LS2 7HZ', lat: 53.8008, lng: -1.5491, name: 'Leeds - University Area', type: 'postcode' },
+    { code: 'LS3 1AB', lat: 53.8008, lng: -1.5491, name: 'Leeds - Burley', type: 'postcode' },
     { code: 'BS1 6HL', lat: 51.4545, lng: -2.5879, name: 'Bristol - Harbourside', type: 'postcode' },
+    { code: 'BS2 0JA', lat: 51.4545, lng: -2.5879, name: 'Bristol - Old Market', type: 'postcode' },
+    { code: 'BS3 4NA', lat: 51.4545, lng: -2.5879, name: 'Bristol - Southville', type: 'postcode' },
     { code: 'CF10 1EP', lat: 51.4816, lng: -3.1791, name: 'Cardiff - Bay', type: 'postcode' },
+    { code: 'CF11 9AB', lat: 51.4816, lng: -3.1791, name: 'Cardiff - Canton', type: 'postcode' },
+    { code: 'CF24 0DE', lat: 51.4816, lng: -3.1791, name: 'Cardiff - Roath', type: 'postcode' },
     { code: 'NE1 7RU', lat: 54.9783, lng: -1.6174, name: 'Newcastle - Quayside', type: 'postcode' },
+    { code: 'NE2 1AB', lat: 54.9783, lng: -1.6174, name: 'Newcastle - Jesmond', type: 'postcode' },
+    { code: 'NE4 5TG', lat: 54.9783, lng: -1.6174, name: 'Newcastle - Benwell', type: 'postcode' },
     { code: 'L1 8JQ', lat: 53.4084, lng: -2.9916, name: 'Liverpool - Albert Dock', type: 'postcode' },
+    { code: 'L2 2DZ', lat: 53.4084, lng: -2.9916, name: 'Liverpool - Cavern Quarter', type: 'postcode' },
+    { code: 'L3 4AA', lat: 53.4084, lng: -2.9916, name: 'Liverpool - Pier Head', type: 'postcode' },
     { code: 'EH1 1YZ', lat: 55.9533, lng: -3.1883, name: 'Edinburgh - Old Town', type: 'postcode' },
-    { code: 'OX1 1PT', lat: 51.7520, lng: -1.2577, name: 'Oxford - City Centre', type: 'postcode' }
+    { code: 'EH2 2BY', lat: 55.9533, lng: -3.1883, name: 'Edinburgh - New Town', type: 'postcode' },
+    { code: 'EH3 6SS', lat: 55.9533, lng: -3.1883, name: 'Edinburgh - Stockbridge', type: 'postcode' },
+    { code: 'OX1 1PT', lat: 51.7520, lng: -1.2577, name: 'Oxford - City Centre', type: 'postcode' },
+    { code: 'OX2 6GG', lat: 51.7520, lng: -1.2577, name: 'Oxford - Jericho', type: 'postcode' },
+    { code: 'OX4 1DA', lat: 51.7520, lng: -1.2577, name: 'Oxford - Cowley', type: 'postcode' },
+    
+    // Additional UK cities
+    { code: 'CB1 1PT', lat: 52.2053, lng: 0.1218, name: 'Cambridge - City Centre', type: 'postcode' },
+    { code: 'CB2 3QZ', lat: 52.2053, lng: 0.1218, name: 'Cambridge - University Area', type: 'postcode' },
+    { code: 'CB4 0WS', lat: 52.2053, lng: 0.1218, name: 'Cambridge - Chesterton', type: 'postcode' },
+    { code: 'BN1 1AL', lat: 50.8225, lng: -0.1372, name: 'Brighton - City Centre', type: 'postcode' },
+    { code: 'BN2 1JJ', lat: 50.8225, lng: -0.1372, name: 'Brighton - Kemptown', type: 'postcode' },
+    { code: 'BN3 1AN', lat: 50.8225, lng: -0.1372, name: 'Brighton - Hove', type: 'postcode' },
+    { code: 'S1 2HE', lat: 53.3811, lng: -1.4701, name: 'Sheffield - City Centre', type: 'postcode' },
+    { code: 'S2 4SU', lat: 53.3811, lng: -1.4701, name: 'Sheffield - Heeley', type: 'postcode' },
+    { code: 'S10 2TN', lat: 53.3811, lng: -1.4701, name: 'Sheffield - Broomhill', type: 'postcode' },
+    { code: 'NG1 5DT', lat: 52.9548, lng: -1.1581, name: 'Nottingham - City Centre', type: 'postcode' },
+    { code: 'NG2 3AA', lat: 52.9548, lng: -1.1581, name: 'Nottingham - West Bridgford', type: 'postcode' },
+    { code: 'NG7 2RD', lat: 52.9548, lng: -1.1581, name: 'Nottingham - Lenton', type: 'postcode' }
   ];
 
   // Handle search input change
@@ -114,7 +94,7 @@ const ZipCodeSearch = ({ onLocationFound, onSearchError }) => {
 
   // Handle suggestion click
   const handleSuggestionClick = (suggestion) => {
-    setSearchQuery(suggestion?.zipcode);
+    setSearchQuery(suggestion?.postcode);
     setShowSuggestions(false);
     setSuggestions([]);
     
@@ -152,12 +132,12 @@ const ZipCodeSearch = ({ onLocationFound, onSearchError }) => {
         });
       } else {
         // Show error message for postal codes not found
-        const errorMessage = `Could not find location for ${searchQuery?.includes(' ') || /[A-Za-z]/.test(searchQuery) ? 'postcode' : 'zip code'}: ${searchQuery}`;
+        const errorMessage = `Could not find location for postcode: ${searchQuery}`;
         onSearchError?.(errorMessage);
       }
     } catch (error) {
       console.error('Postal code search error:', error);
-      const errorMessage = `Could not find location for ${searchQuery?.includes(' ') || /[A-Za-z]/.test(searchQuery) ? 'postcode' : 'zip code'}: ${searchQuery}`;
+      const errorMessage = `Could not find location for postcode: ${searchQuery}`;
       onSearchError?.(errorMessage);
     } finally {
       setIsLoading(false);
@@ -188,7 +168,7 @@ const ZipCodeSearch = ({ onLocationFound, onSearchError }) => {
             onChange={handleSearchChange}
             onFocus={handleFocus}
             onBlur={handleBlur}
-            placeholder="Search zip code or postcode (e.g. 10001, E17DB)"
+            placeholder="Search postcode (e.g. SW1A 1AA, M1 4ET)"
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-sm"
             disabled={isLoading}
           />
@@ -207,8 +187,8 @@ const ZipCodeSearch = ({ onLocationFound, onSearchError }) => {
                     <div>
                       <div className="font-medium text-gray-900 flex items-center space-x-2">
                         <span>{suggestion?.code}</span>
-                        <span className="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded-full">
-                          {suggestion?.type === 'postcode' ? 'UK' : 'US'}
+                        <span className="text-xs px-2 py-1 bg-blue-100 text-blue-600 rounded-full">
+                          UK
                         </span>
                       </div>
                       <div className="text-sm text-gray-500">

@@ -110,9 +110,9 @@ const QuotationDocument = ({ quotation }) => {
       {/* UK Power Networks Header */}
       <div className="relative">
         <img 
-          src="/assets/images/image-1758726149842.png" 
+          src="/assets/images/uk-power-networks-logo.svg" 
           alt="UK Power Networks Quotation Template" 
-          className="w-full h-auto"
+          className="w-full h-auto max-h-32 object-contain bg-white p-4"
         />
         {/* Overlay form elements on the image template */}
         <div className="absolute inset-0 p-4">

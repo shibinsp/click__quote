@@ -3,7 +3,7 @@ import Icon from '../../../components/AppIcon';
 
 const ActivityHistory = ({ activities }) => {
   const formatDate = (date) => {
-    return new Date(date)?.toLocaleDateString('en-US', {
+    return new Date(date)?.toLocaleDateString('en-GB', {
       year: 'numeric',
       month: 'short',
       day: 'numeric',

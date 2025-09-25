@@ -16,7 +16,7 @@ const RecentQuotationsTable = ({ quotations, userRole }) => {
   };
 
   const formatDate = (dateString) => {
-    return new Date(dateString)?.toLocaleDateString('en-US', {
+    return new Date(dateString)?.toLocaleDateString('en-GB', {
       month: 'short',
       day: 'numeric',
       year: 'numeric'
@@ -50,28 +50,28 @@ const RecentQuotationsTable = ({ quotations, userRole }) => {
         <table className="w-full">
           <thead className="bg-muted/50">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider rounded-lg">
                 Quote ID
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider rounded-lg">
                 Customer
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider rounded-lg">
                 Template
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider rounded-lg">
                 Location
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider rounded-lg">
                 Amount
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider rounded-lg">
                 Status
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider rounded-lg">
                 Created
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider rounded-lg">
                 Actions
               </th>
             </tr>
