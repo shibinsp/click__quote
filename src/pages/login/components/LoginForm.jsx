@@ -4,7 +4,7 @@ import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
 import Icon from '../../../components/AppIcon';
 
-const LoginForm = () => {
+const LoginForm = ({ onAutoFill }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
@@ -15,9 +15,25 @@ const LoginForm = () => {
 
   // Mock credentials for different user types
   const mockCredentials = {
-    admin: { email: 'admin@clickquote.com', password: 'Admin@123' },
-    user: { email: 'user@clickquote.com', password: 'User@123' }
+    admin: { email: 'admin@ukpowernetworks.com', password: 'Admin@123' },
+    user: { email: 'user@ukpowernetworks.com', password: 'User@123' }
   };
+
+  // Auto-fill function to be called from DemoCredentials
+  const handleAutoFill = (email, password) => {
+    setFormData({
+      email: email || '',
+      password: password || ''
+    });
+    setErrors({}); // Clear any existing errors
+  };
+
+  // Expose the auto-fill function to parent component
+  React.useEffect(() => {
+    if (onAutoFill) {
+      onAutoFill(handleAutoFill);
+    }
+  }, [onAutoFill]);
 
   const validateForm = () => {
     const newErrors = {};
@@ -81,7 +97,7 @@ const LoginForm = () => {
       } else {
         // Invalid credentials
         setErrors({
-          general: `Invalid credentials. Use admin@clickquote.com / Admin@123 or user@clickquote.com / User@123`
+          general: `Invalid credentials. Use admin@ukpowernetworks.com / Admin@123 or user@ukpowernetworks.com / User@123`
         });
       }
       

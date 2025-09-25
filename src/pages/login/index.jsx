@@ -7,6 +7,7 @@ import DemoCredentials from './components/DemoCredentials';
 
 const Login = () => {
   const navigate = useNavigate();
+  const [autoFillFunction, setAutoFillFunction] = React.useState(null);
 
   useEffect(() => {
     // Check if user is already authenticated
@@ -15,6 +16,16 @@ const Login = () => {
       navigate('/dashboard');
     }
   }, [navigate]);
+
+  const handleAutoFillRef = (autoFillFn) => {
+    setAutoFillFunction(() => autoFillFn);
+  };
+
+  const handleDemoCredentialAutoFill = (credential) => {
+    if (autoFillFunction) {
+      autoFillFunction(credential.email, credential.password);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
@@ -25,10 +36,10 @@ const Login = () => {
           <CompanyBranding />
 
           {/* Login Form */}
-          <LoginForm />
+          <LoginForm onAutoFill={handleAutoFillRef} />
 
           {/* Demo Credentials */}
-          <DemoCredentials />
+          <DemoCredentials onAutoFill={handleDemoCredentialAutoFill} />
 
           {/* Security Indicators */}
           <SecurityIndicators />
@@ -37,7 +48,7 @@ const Login = () => {
         {/* Footer */}
         <div className="text-center mt-6">
           <p className="text-sm text-muted-foreground">
-            © {new Date()?.getFullYear()} Click & Quote. All rights reserved.
+            © {new Date()?.getFullYear()} UK Power Networks. All rights reserved.
           </p>
         </div>
       </div>

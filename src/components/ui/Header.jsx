@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Icon from '../AppIcon';
 import Button from './Button';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navigationItems = [
     { label: 'Dashboard', path: '/dashboard', icon: 'LayoutDashboard' },
@@ -21,6 +22,16 @@ const Header = () => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleLogout = () => {
+    // Clear authentication data
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('userRole');
+    localStorage.removeItem('userEmail');
+    
+    // Navigate to login page
+    navigate('/login');
   };
 
   return (
@@ -54,6 +65,17 @@ const Header = () => {
               <span>{item?.label}</span>
             </Link>
           ))}
+          
+          {/* Logout Button */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleLogout}
+            className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10 ml-4"
+          >
+            <Icon name="LogOut" size={16} className="mr-2" />
+            <span>Logout</span>
+          </Button>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -84,6 +106,18 @@ const Header = () => {
                 <span>{item?.label}</span>
               </Link>
             ))}
+            
+            {/* Mobile Logout Button */}
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                handleLogout();
+              }}
+              className="flex items-center space-x-3 px-3 py-3 rounded-md text-sm font-medium transition-hover text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10 w-full text-left"
+            >
+              <Icon name="LogOut" size={18} />
+              <span>Logout</span>
+            </button>
           </nav>
         </div>
       )}
