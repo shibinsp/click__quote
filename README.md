@@ -77,7 +77,7 @@ cp .env.example .env
 python run_server.py
 ```
 
-The API will be available at `http://localhost:8000`
+The API will be available at `http://localhost:9000`
 
 ### Frontend Setup
 
@@ -123,8 +123,8 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 ## 📚 API Documentation
 
 Once the backend is running, visit:
-- **Swagger UI**: `http://localhost:8000/docs`
-- **ReDoc**: `http://localhost:8000/redoc`
+- **Swagger UI**: `http://localhost:9000/docs`
+- **ReDoc**: `http://localhost:9000/redoc`
 
 ### Key Endpoints
 - `POST /api/v1/auth/login` - User authentication
@@ -206,7 +206,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "9000"]
 ```
 
 ## 🤝 Contributing
