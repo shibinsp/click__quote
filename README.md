@@ -1,107 +1,238 @@
-# React
+# Click & Quote
 
-A modern React-based project utilizing the latest frontend technologies and tools for building responsive web applications.
+A modern web application for electrical quotation management, designed to streamline the process of creating, managing, and tracking electrical service quotations.
 
 ## 🚀 Features
 
-- **React 18** - React version with improved rendering and concurrent features
-- **Vite** - Lightning-fast build tool and development server
-- **Redux Toolkit** - State management with simplified Redux setup
-- **TailwindCSS** - Utility-first CSS framework with extensive customization
-- **React Router v6** - Declarative routing for React applications
-- **Data Visualization** - Integrated D3.js and Recharts for powerful data visualization
-- **Form Management** - React Hook Form for efficient form handling
-- **Animation** - Framer Motion for smooth UI animations
-- **Testing** - Jest and React Testing Library setup
+### Core Functionality
+- **Quotation Management**: Create, edit, duplicate, and track electrical service quotations
+- **Template System**: Pre-built templates for different types of electrical work (UK Power Networks, Industrial Lighting, etc.)
+- **Interactive Map View**: Visualize quotation locations with Leaflet integration
+- **User Management**: Role-based access control (Admin/User roles)
+- **Dashboard Analytics**: Overview of quotations, revenue tracking, and performance metrics
+- **Document Generation**: Professional quotation documents with company branding
 
-## 📋 Prerequisites
+### Key Features
+- **Real-time Status Tracking**: Monitor quotation status (Draft, Submitted, Approved, Rejected, Accepted)
+- **Geographic Integration**: Create quotations directly from map locations
+- **Activity History**: Track all user actions and quotation changes
+- **Responsive Design**: Mobile-friendly interface with Tailwind CSS
+- **Authentication**: Secure JWT-based authentication system
+- **RESTful API**: FastAPI backend with comprehensive endpoints
 
-- Node.js (v14.x or higher)
-- npm or yarn
+## 🛠️ Technology Stack
 
-## 🛠️ Installation
+### Frontend
+- **React 18.2.0** - Modern React with hooks and functional components
+- **Vite** - Fast build tool and development server
+- **Tailwind CSS** - Utility-first CSS framework
+- **React Router DOM** - Client-side routing
+- **Leaflet** - Interactive maps
+- **Framer Motion** - Smooth animations
+- **Axios** - HTTP client for API communication
+- **React Hook Form** - Form handling and validation
+- **Recharts** - Data visualization and charts
 
-1. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-   
-2. Start the development server:
-   ```bash
-   npm start
-   # or
-   yarn start
-   ```
+### Backend
+- **FastAPI 0.104.1** - Modern Python web framework
+- **SQLAlchemy 2.0.23** - SQL toolkit and ORM
+- **SQLite** - Lightweight database
+- **Uvicorn** - ASGI server
+- **JWT Authentication** - Secure token-based auth
+- **Pydantic** - Data validation and serialization
 
-## 📁 Project Structure
+## 📦 Installation
 
-```
-react_app/
-├── public/             # Static assets
-├── src/
-│   ├── components/     # Reusable UI components
-│   ├── pages/          # Page components
-│   ├── styles/         # Global styles and Tailwind configuration
-│   ├── App.jsx         # Main application component
-│   ├── Routes.jsx      # Application routes
-│   └── index.jsx       # Application entry point
-├── .env                # Environment variables
-├── index.html          # HTML template
-├── package.json        # Project dependencies and scripts
-├── tailwind.config.js  # Tailwind CSS configuration
-└── vite.config.js      # Vite configuration
-```
+### Prerequisites
+- **Node.js** (v16 or higher)
+- **Python** (v3.8 or higher)
+- **npm** or **yarn**
 
-## 🧩 Adding Routes
+### Backend Setup
 
-To add new routes to the application, update the `Routes.jsx` file:
-
-```jsx
-import { useRoutes } from "react-router-dom";
-import HomePage from "pages/HomePage";
-import AboutPage from "pages/AboutPage";
-
-const ProjectRoutes = () => {
-  let element = useRoutes([
-    { path: "/", element: <HomePage /> },
-    { path: "/about", element: <AboutPage /> },
-    // Add more routes as needed
-  ]);
-
-  return element;
-};
-```
-
-## 🎨 Styling
-
-This project uses Tailwind CSS for styling. The configuration includes:
-
-- Forms plugin for form styling
-- Typography plugin for text styling
-- Aspect ratio plugin for responsive elements
-- Container queries for component-specific responsive design
-- Fluid typography for responsive text
-- Animation utilities
-
-## 📱 Responsive Design
-
-The app is built with responsive design using Tailwind CSS breakpoints.
-
-
-## 📦 Deployment
-
-Build the application for production:
-
+1. Navigate to the backend directory:
 ```bash
-npm run build
+cd backend
 ```
 
-## 🙏 Acknowledgments
+2. Create a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-- Built with [Rocket.new](https://rocket.new)
-- Powered by React and Vite
-- Styled with Tailwind CSS
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-Built with ❤️ on Rocket.new
+4. Configure environment variables:
+```bash
+# Copy and modify the .env file
+cp .env.example .env
+```
+
+5. Start the backend server:
+```bash
+python run_server.py
+```
+
+The API will be available at `http://localhost:8000`
+
+### Frontend Setup
+
+1. Navigate to the project root:
+```bash
+cd ..
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm start
+```
+
+The application will be available at `http://localhost:4028`
+
+## 🔧 Configuration
+
+### Backend Configuration (.env)
+```env
+PROJECT_NAME="Click & Quote API"
+PROJECT_VERSION="1.0.0"
+DEBUG=true
+
+# Database
+DATABASE_URL="sqlite:///./clickquote.db"
+
+# Security
+SECRET_KEY="your-secret-key-here-change-in-production"
+ALGORITHM="HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+```
+
+### Demo Credentials
+- **Admin**: `admin@clickquote.com` / `Admin@123`
+- **User**: `user@clickquote.com` / `User@123`
+- **Test User**: `test@example.com` / `testpass123`
+
+## 📚 API Documentation
+
+Once the backend is running, visit:
+- **Swagger UI**: `http://localhost:8000/docs`
+- **ReDoc**: `http://localhost:8000/redoc`
+
+### Key Endpoints
+- `POST /api/v1/auth/login` - User authentication
+- `GET /api/v1/quotations/` - List quotations
+- `POST /api/v1/quotations/` - Create quotation
+- `GET /api/v1/templates/` - List templates
+- `GET /api/v1/users/me` - Get current user profile
+
+## 🏗️ Project Structure
+
+```
+click-quote/
+├── backend/                 # FastAPI backend
+│   ├── app/
+│   │   ├── api/            # API routes
+│   │   ├── core/           # Core functionality
+│   │   ├── db/             # Database models
+│   │   └── schemas/        # Pydantic schemas
+│   ├── requirements.txt    # Python dependencies
+│   └── run_server.py      # Server startup script
+├── src/                    # React frontend
+│   ├── components/         # Reusable components
+│   ├── pages/             # Page components
+│   │   ├── dashboard/     # Dashboard page
+│   │   ├── create-quotation/ # Quotation creation
+│   │   ├── quotation-details/ # Quotation details
+│   │   ├── map-view/      # Interactive map
+│   │   └── template-management/ # Template management
+│   ├── styles/            # CSS styles
+│   └── utils/             # Utility functions
+├── package.json           # Node.js dependencies
+└── README.md             # This file
+```
+
+## 🎯 Usage
+
+### Creating a Quotation
+1. Navigate to **Create Quotation** from the dashboard
+2. Fill in customer details and project information
+3. Select or create a template
+4. Add line items and pricing
+5. Preview and save the quotation
+
+### Using the Map View
+1. Go to **Map View** to see all quotation locations
+2. Click on markers to view quotation details
+3. Create new quotations by clicking on the map
+4. Use polygon tools to define service areas
+
+### Managing Templates
+1. Access **Template Management** (Admin only)
+2. Create reusable templates for common services
+3. Organize templates by category and type
+4. Duplicate and modify existing templates
+
+## 🔒 Security Features
+
+- JWT-based authentication with secure token handling
+- Role-based access control (Admin/User permissions)
+- Password hashing with industry-standard algorithms
+- CORS protection for cross-origin requests
+- Input validation and sanitization
+
+## 🚀 Deployment
+
+### Production Considerations
+1. Change the `SECRET_KEY` in production
+2. Use a production database (PostgreSQL recommended)
+3. Set `DEBUG=false` in production
+4. Configure proper CORS origins
+5. Use HTTPS in production
+6. Set up proper logging and monitoring
+
+### Docker Deployment (Optional)
+```dockerfile
+# Example Dockerfile for backend
+FROM python:3.9-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🆘 Support
+
+For support and questions:
+- Email: info@clickquote.com
+- Phone: (555) 123-4567
+- Create an issue in this repository
+
+## 🔄 Version History
+
+- **v1.0.0** - Initial release with core quotation management features
+- **v0.1.0** - Development version with basic functionality
+
+---
+
+**Click & Quote** - Streamlining electrical quotation management for modern businesses.

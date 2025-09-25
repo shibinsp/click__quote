@@ -208,7 +208,7 @@ const ItemsSection = ({ selectedTemplate, items, onItemsChange, errors }) => {
                     />
                   </td>
                   <td className="p-4 text-right font-medium text-foreground">
-                    ${calculateItemTotal(item?.quantity, item?.unitPrice)?.toFixed(2)}
+                    £{calculateItemTotal(item?.quantity, item?.unitPrice)?.toFixed(2)}
                   </td>
                   <td className="p-4 text-center">
                     {item?.isCustom && (
@@ -233,15 +233,15 @@ const ItemsSection = ({ selectedTemplate, items, onItemsChange, errors }) => {
           <div className="p-4 space-y-2">
             <div className="flex justify-between items-center">
               <span className="text-muted-foreground">Subtotal:</span>
-              <span className="font-medium text-foreground">${calculateSubTotal()?.toFixed(2)}</span>
+              <span className="font-medium text-foreground">£{calculateSubTotal()?.toFixed(2)}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-muted-foreground">Tax (8%):</span>
-              <span className="font-medium text-foreground">${calculateTax(calculateSubTotal())?.toFixed(2)}</span>
+              <span className="font-medium text-foreground">£{calculateTax(calculateSubTotal())?.toFixed(2)}</span>
             </div>
             <div className="flex justify-between items-center pt-2 border-t border-border">
               <span className="text-lg font-semibold text-foreground">Grand Total:</span>
-              <span className="text-lg font-bold text-primary">${calculateGrandTotal()?.toFixed(2)}</span>
+              <span className="text-lg font-bold text-primary">£{calculateGrandTotal()?.toFixed(2)}</span>
             </div>
           </div>
         </div>

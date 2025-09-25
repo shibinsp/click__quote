@@ -152,9 +152,9 @@ const QuotationPreview = ({
                           <div className="text-sm text-muted-foreground">{item?.category}</div>
                         </td>
                         <td className="p-3 text-center text-foreground">{item?.quantity || 0}</td>
-                        <td className="p-3 text-right text-foreground">${(item?.unitPrice || 0)?.toFixed(2)}</td>
+                        <td className="p-3 text-right text-foreground">£{(item?.unitPrice || 0)?.toFixed(2)}</td>
                         <td className="p-3 text-right font-medium text-foreground">
-                          ${((item?.quantity || 0) * (item?.unitPrice || 0))?.toFixed(2)}
+                          £{((item?.quantity || 0) * (item?.unitPrice || 0))?.toFixed(2)}
                         </td>
                       </tr>
                     ))}
@@ -168,15 +168,15 @@ const QuotationPreview = ({
               <div className="w-80 space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Subtotal:</span>
-                  <span className="font-medium text-foreground">${calculateSubTotal()?.toFixed(2)}</span>
+                  <span className="font-medium text-foreground">£{calculateSubTotal()?.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Tax (8%):</span>
-                  <span className="font-medium text-foreground">${calculateTax(calculateSubTotal())?.toFixed(2)}</span>
+                  <span className="font-medium text-foreground">£{calculateTax(calculateSubTotal())?.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between items-center pt-2 border-t border-border">
                   <span className="text-lg font-semibold text-foreground">Total Amount:</span>
-                  <span className="text-lg font-bold text-primary">${calculateGrandTotal()?.toFixed(2)}</span>
+                  <span className="text-lg font-bold text-primary">£{calculateGrandTotal()?.toFixed(2)}</span>
                 </div>
               </div>
             </div>

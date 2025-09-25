@@ -44,7 +44,7 @@ const TemplateStats = ({ templates, userRole }) => {
       {stats?.map((stat, index) => (
         <div key={index} className="bg-card border border-border rounded-lg p-4">
           <div className="flex items-center space-x-3">
-            <div className={`flex items-center justify-center w-10 h-10 rounded-md ${stat?.bgColor}`}>
+            <div className={`flex items-center justify-center w-10 h-10 rounded-md £{stat?.bgColor}`}>
               <Icon name={stat?.icon} size={20} className={stat?.color} />
             </div>
             <div>

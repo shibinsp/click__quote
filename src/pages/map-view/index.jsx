@@ -8,7 +8,7 @@ import LocationConfirmationModal from './components/LocationConfirmationModal';
 import MapLegend from './components/MapLegend';
 import QuotationSummaryCard from './components/QuotationSummaryCard';
 import QuotationTable from './components/QuotationTable';
-import PostcodeSearch from './components/PostcodeSearch';
+import ZipCodeSearch from './components/ZipCodeSearch';
 import Icon from '../../components/AppIcon';
 
 const MapView = () => {
@@ -48,7 +48,7 @@ const MapView = () => {
       customerName: "Northern Power Networks Ltd",
       customerEmail: "procurement@northernpower.co.uk",
       customerPhone: "+44 161 123 4567",
-      templateType: "transformer",
+      templateType: "standard",
       createdBy: "James Wilson",
       createdAt: "2024-07-20T15:03:08Z",
       updatedAt: "2024-07-20T15:03:08Z",
@@ -72,7 +72,7 @@ const MapView = () => {
       customerName: "Midlands Electric Services",
       customerEmail: "orders@midlandselectric.co.uk",
       customerPhone: "+44 121 234 5678",
-      templateType: "household",
+      templateType: "standard",
       createdBy: "Sarah Thompson",
       createdAt: "2024-02-28T10:50:14Z",
       updatedAt: "2024-02-28T10:50:14Z",
@@ -96,7 +96,7 @@ const MapView = () => {
       customerName: "Scottish Infrastructure Ltd",
       customerEmail: "maintenance@scottishinfra.co.uk",
       customerPhone: "+44 141 345 6789",
-      templateType: "lighting",
+      templateType: "standard",
       createdBy: "Michael MacDonald",
       createdAt: "2024-02-28T10:17:04Z",
       updatedAt: "2024-08-26T08:30:00Z",
@@ -120,7 +120,7 @@ const MapView = () => {
       customerName: "Thames Valley Engineering",
       customerEmail: "facilities@thamesvalley.co.uk",
       customerPhone: "+44 20 456 7890",
-      templateType: "industrial",
+      templateType: "standard",
       createdBy: "James Wilson",
       createdAt: "2024-02-29T13:40:10Z",
       updatedAt: "2024-02-29T13:40:10Z",
@@ -144,7 +144,7 @@ const MapView = () => {
       customerName: "Yorkshire Power Solutions",
       customerEmail: "projects@yorkshirepower.co.uk",
       customerPhone: "+44 113 567 8901",
-      templateType: "transformer",
+      templateType: "standard",
       createdBy: "Sarah Thompson",
       createdAt: "2024-03-04T12:32:55Z",
       updatedAt: "2024-08-31T10:45:00Z",
@@ -168,7 +168,7 @@ const MapView = () => {
       customerName: "Southwest Energy Systems",
       customerEmail: "solar@swenergy.co.uk",
       customerPhone: "+44 117 678 9012",
-      templateType: "renewable",
+      templateType: "standard",
       createdBy: "David Evans",
       createdAt: "2024-03-05T09:15:22Z",
       updatedAt: "2024-03-05T09:15:22Z",
@@ -192,7 +192,7 @@ const MapView = () => {
       customerName: "Welsh Emergency Solutions",
       customerEmail: "emergency@welshsolutions.co.uk",
       customerPhone: "+44 29 789 0123",
-      templateType: "lighting",
+      templateType: "standard",
       createdBy: "Emma Davies",
       createdAt: "2024-03-06T14:25:33Z",
       updatedAt: "2024-03-06T14:25:33Z",
@@ -216,7 +216,7 @@ const MapView = () => {
       customerName: "Northern Climate Control",
       customerEmail: "controls@northernclimate.co.uk",
       customerPhone: "+44 191 890 1234",
-      templateType: "industrial",
+      templateType: "standard",
       createdBy: "Robert Johnson",
       createdAt: "2024-03-07T11:42:15Z",
       updatedAt: "2024-03-07T11:42:15Z",
@@ -240,7 +240,7 @@ const MapView = () => {
       customerName: "Merseyside Safety Systems",
       customerEmail: "safety@merseysafety.co.uk",
       customerPhone: "+44 151 901 2345",
-      templateType: "safety",
+      templateType: "standard",
       createdBy: "Lisa Brown",
       createdAt: "2024-03-08T16:30:45Z",
       updatedAt: "2024-03-08T16:30:45Z",
@@ -265,7 +265,7 @@ const MapView = () => {
       customerName: "Highland Renewables",
       customerEmail: "wind@highlandrenew.co.uk",
       customerPhone: "+44 131 012 3456",
-      templateType: "renewable",
+      templateType: "standard",
       createdBy: "Andrew Stewart",
       createdAt: "2024-03-09T08:20:18Z",
       updatedAt: "2024-03-09T08:20:18Z",
@@ -289,7 +289,7 @@ const MapView = () => {
       customerName: "Yorkshire Data Solutions",
       customerEmail: "cooling@yorkshiredata.co.uk",
       customerPhone: "+44 114 123 4567",
-      templateType: "industrial",
+      templateType: "standard",
       createdBy: "Helen Clark",
       createdAt: "2024-03-10T13:55:30Z",
       updatedAt: "2024-03-10T13:55:30Z",
@@ -1098,9 +1098,9 @@ const MapView = () => {
     }
   }, [searchParams]);
 
-  // Handle postcode search location found
+  // Handle zip code search location found
   const handleLocationFound = useCallback((location) => {
-    if (mapRef?.current) {
+    if (mapRef?.current && location?.lat && location?.lng) {
       // Update map view to show the found location
       mapRef?.current?.setView([location?.lat, location?.lng], 12);
       
@@ -1110,10 +1110,20 @@ const MapView = () => {
       // Show success notification
       setSearchNotification({
         type: 'success',
-        message: `Found: ${location?.postcode || location?.name}`
+        message: `Found: ${location?.zipcode || location?.name}`
       });
       
       // Clear notification after 3 seconds
+      setTimeout(() => {
+        setSearchNotification(null);
+      }, 3000);
+    } else {
+      // Handle invalid location data
+      setSearchNotification({
+        type: 'error',
+        message: 'Invalid location data received'
+      });
+      
       setTimeout(() => {
         setSearchNotification(null);
       }, 3000);
@@ -1171,7 +1181,7 @@ const MapView = () => {
   const handleMarkerClick = useCallback((quotationId, action, location) => {
     if (action === 'view' && quotationId) {
       navigate(`/quotation-details?id=${quotationId}`);
-    } else if (action === 'create' && location) {
+    } else if (action === 'create' && location?.lat && location?.lng) {
       const params = new URLSearchParams();
       params?.set('lat', location?.lat?.toString());
       params?.set('lng', location?.lng?.toString());
@@ -1190,19 +1200,21 @@ const MapView = () => {
     setIsLocationModalOpen(false);
     setSelectedLocation(null);
 
-    const params = new URLSearchParams();
-    params?.set('lat', location?.lat?.toString());
-    params?.set('lng', location?.lng?.toString());
-    
-    // Check if this is part of a template duplication workflow
-    const duplicateTemplateId = sessionStorage.getItem('duplicateTemplateId');
-    if (duplicateTemplateId) {
-      params?.set('duplicate_template', duplicateTemplateId);
+    if (location?.lat && location?.lng) {
+      const params = new URLSearchParams();
+      params?.set('lat', location?.lat?.toString());
+      params?.set('lng', location?.lng?.toString());
+      
+      // Check if this is part of a template duplication workflow
+      const duplicateTemplateId = sessionStorage.getItem('duplicateTemplateId');
+      if (duplicateTemplateId) {
+        params?.set('duplicate_template', duplicateTemplateId);
       // Clear from session storage after use
-      sessionStorage.removeItem('duplicateTemplateId');
+        sessionStorage.removeItem('duplicateTemplateId');
+      }
+      
+      navigate(`/create-quotation?${params?.toString()}`);
     }
-    
-    navigate(`/create-quotation?${params?.toString()}`);
   }, [navigate]);
 
   // Handle location modal cancel
@@ -1237,47 +1249,17 @@ const MapView = () => {
       <Header />
       <main className="pt-16 h-screen">
         <div className="relative h-full">
-          {/* Search and View Controls */}
-          <div className="absolute top-4 left-4 right-4 z-10 flex items-center justify-between pointer-events-none">
-            {/* Postcode Search - Only show in map view */}
-            {!showTableView && (
-              <div className="flex items-center space-x-4 pointer-events-auto">
-                <PostcodeSearch 
-                  onLocationFound={handleLocationFound}
-                  onSearchError={handleSearchError}
-                />
-                
-                {/* Search Notification */}
-                {searchNotification && (
-                  <div 
-                    className={`px-4 py-2 rounded-lg shadow-md flex items-center space-x-2 pointer-events-auto ${
-                      searchNotification?.type === 'success' ?'bg-green-100 border border-green-200 text-green-800' :'bg-red-100 border border-red-200 text-red-800'
-                    }`}
-                  >
-                    <Icon 
-                      name={searchNotification?.type === 'success' ? "CheckCircle" : "AlertCircle"} 
-                      size={16} 
-                    />
-                    <span className="text-sm font-medium">
-                      {searchNotification?.message}
-                    </span>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* View Toggle Button */}
-            <div className="flex-shrink-0 pointer-events-auto">
-              <button
-                onClick={handleToggleView}
-                className="bg-white border border-gray-300 rounded-lg px-4 py-2 shadow-md hover:shadow-lg transition-shadow duration-200 flex items-center space-x-2"
-              >
-                <Icon name={showTableView ? "Map" : "Table"} size={16} />
-                <span className="text-sm font-medium">
-                  {showTableView ? "Map View" : "Table View"}
-                </span>
-              </button>
-            </div>
+          {/* View Toggle Button - Top right */}
+          <div className="absolute top-4 right-4 z-50 pointer-events-auto">
+            <button
+              onClick={handleToggleView}
+              className="bg-white border border-gray-300 rounded-lg px-4 py-2 shadow-md hover:shadow-lg transition-shadow duration-200 flex items-center space-x-2"
+            >
+              <Icon name={showTableView ? "Map" : "Table"} size={16} />
+              <span className="text-sm font-medium">
+                {showTableView ? "Map View" : "Table View"}
+              </span>
+            </button>
           </div>
 
           {showTableView ? (
@@ -1291,7 +1273,7 @@ const MapView = () => {
           ) : (
             // Map View (existing content)
             (<>
-              {/* Map Container */}
+              {/* Map Container with ZipCodeSearch inside */}
               <MapContainer
                 ref={mapRef}
                 quotations={quotations}
@@ -1299,7 +1281,30 @@ const MapView = () => {
                 onMarkerClick={handleMarkerClick}
                 onMapClick={handleMapClick}
                 selectedLocation={selectedLocation}
-              />
+              >
+                {/* ZipCodeSearch as child of MapContainer */}
+                <ZipCodeSearch 
+                  onLocationFound={handleLocationFound}
+                  onSearchError={handleSearchError}
+                />
+                
+                {/* Search Notification */}
+                {searchNotification && (
+                  <div 
+                    className={`mt-3 px-4 py-2 rounded-lg shadow-md flex items-center space-x-2 ${
+                      searchNotification?.type === 'success' ?'bg-green-100 border border-green-200 text-green-800' :'bg-red-100 border border-red-200 text-red-800'
+                    }`}
+                  >
+                    <Icon 
+                      name={searchNotification?.type === 'success' ? "CheckCircle" : "AlertCircle"} 
+                      size={16} 
+                    />
+                    <span className="text-sm font-medium">
+                      {searchNotification?.message}
+                    </span>
+                  </div>
+                )}
+              </MapContainer>
               {/* Filter Panel */}
               <FilterPanel
                 isOpen={isFilterPanelOpen}

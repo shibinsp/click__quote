@@ -171,8 +171,8 @@ const QuotationDetails = () => {
   };
 
   const handleEdit = () => {
-    navigate(`/create-quotation?edit=${quotation?.id}`, {
-      state: { quotation, returnTo: `/quotation-details/${quotation?.id}` }
+    navigate(`/create-quotation?edit=£{quotation?.id}`, {
+      state: { quotation, returnTo: `/quotation-details/£{quotation?.id}` }
     });
   };
 

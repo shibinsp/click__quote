@@ -6,67 +6,66 @@
 
 @layer base {
   :root {
-    /* Core Colors - Updated for UK Power Networks theme */
+    /* UKPN Core Colors */
     --color-background: #FFFFFF; /* white - clean backgrounds */
-    --color-foreground: #0F172A; /* slate-900 */
-    --color-border: #E2E8F0; /* slate-200 */
-    --color-input: #FFFFFF; /* white */
-    --color-ring: #0066CC; /* UK Power Networks blue for hyperlinks */
+    --color-foreground: #000000; /* black text */
+    --color-border: #EAEAEA; /* light gray borders */
+    --color-input: #FFFFFF; /* white inputs */
+    --color-ring: #A60B0B; /* deep red focus rings */
     
     /* Card Colors */
-    --color-card: #FFFFFF; /* white */
-    --color-card-foreground: #0F172A; /* slate-900 */
+    --color-card: #FFFFFF; /* white cards */
+    --color-card-foreground: #000000; /* black text on cards */
     
     /* Popover Colors */
-    --color-popover: #FFFFFF; /* white */
-    --color-popover-foreground: #0F172A; /* slate-900 */
+    --color-popover: #FFFFFF; /* white popovers */
+    --color-popover-foreground: #000000; /* black text on popovers */
     
     /* Muted Colors */
-    --color-muted: #F1F5F9; /* slate-100 */
-    --color-muted-foreground: #64748B; /* slate-500 */
+    --color-muted: #F4F4F4; /* light gray muted backgrounds */
+    --color-muted-foreground: #666666; /* medium gray muted text */
     
-    /* Primary Colors - Updated to UK Power Networks deep red */
-    --color-primary: #E53E3E; /* UK Power Networks deep red */
-    --color-primary-foreground: #FFFFFF; /* white */
+    /* Primary Colors - UKPN Deep Red */
+    --color-primary: #A60B0B; /* UKPN deep red for headers, buttons, logo */
+    --color-primary-foreground: #FFFFFF; /* white text on red */
     
-    /* Secondary Colors - Updated to UK Power Networks bright orange */
-    --color-secondary: #FF6B35; /* UK Power Networks bright orange */
-    --color-secondary-foreground: #FFFFFF; /* white */
+    /* Secondary Colors - Light Gray */
+    --color-secondary: #F4F4F4; /* light gray secondary */
+    --color-secondary-foreground: #000000; /* black text on light gray */
     
-    /* Accent Colors - Updated to UK Power Networks option selection orange */
-    --color-accent: #FF8C42; /* UK Power Networks option selection orange */
-    --color-accent-foreground: #FFFFFF; /* white */
+    /* Accent Colors - UKPN Orange */
+    --color-accent: #FF9900; /* UKPN orange for highlights */
+    --color-accent-foreground: #000000; /* black text on orange */
     
     /* Success Colors */
-    --color-success: #059669; /* emerald-600 */
-    --color-success-foreground: #FFFFFF; /* white */
+    --color-success: #059669; /* keep green for success */
+    --color-success-foreground: #FFFFFF; /* white text */
     
-    /* Warning Colors - Updated to UK Power Networks warm orange */
-    --color-warning: #FFA726; /* UK Power Networks payment section warm orange */
-    --color-warning-foreground: #0F172A; /* dark text for better contrast */
+    /* Warning Colors - UKPN Orange variant */
+    --color-warning: #F2994B; /* UKPN orange variant for warnings */
+    --color-warning-foreground: #000000; /* black text for contrast */
     
-    /* Error Colors */
-    --color-error: #DC2626; /* red-600 */
-    --color-error-foreground: #FFFFFF; /* white */
+    /* Error Colors - Keep red but align with UKPN */
+    --color-error: #A60B0B; /* use UKPN deep red for errors */
+    --color-error-foreground: #FFFFFF; /* white text */
     
     /* Destructive Colors */
-    --color-destructive: #DC2626; /* red-600 */
-    --color-destructive-foreground: #FFFFFF; /* white */
+    --color-destructive: #A60B0B; /* UKPN deep red */
+    --color-destructive-foreground: #FFFFFF; /* white text */
     
     /* Surface Color */
-    --color-surface: #FFFFFF; /* white */
+    --color-surface: #FFFFFF; /* white surfaces */
     
     /* Text Colors */
-    --color-text-primary: #0F172A; /* slate-900 */
-    --color-text-secondary: #64748B; /* slate-500 */
+    --color-text-primary: #000000; /* black primary text */
+    --color-text-secondary: #666666; /* gray secondary text */
     
-    /* UK Power Networks Gradient Colors - For header sections */
-    --color-gradient-start: #E53E3E; /* deep red */
-    --color-gradient-end: #FF6B35; /* bright orange */
-    
-    /* UK Power Networks Link Color */
-    --color-link: #0066CC; /* blue hyperlinks */
-    --color-link-hover: #004499; /* darker blue on hover */
+    /* UKPN Specific Colors */
+    --color-ukpn-red: #A60B0B; /* primary UKPN red */
+    --color-ukpn-orange: #FF9900; /* primary UKPN orange */
+    --color-ukpn-orange-alt: #F2994B; /* alternative UKPN orange */
+    --color-ukpn-gray-light: #F4F4F4; /* light gray */
+    --color-ukpn-gray-medium: #EAEAEA; /* medium gray */
   }
 
   * {

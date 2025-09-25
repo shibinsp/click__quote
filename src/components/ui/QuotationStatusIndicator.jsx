@@ -35,19 +35,19 @@ const QuotationStatusIndicator = ({
   };
 
   return (
-    <div className={`inline-flex items-center space-x-2 px-3 py-1.5 rounded-md ${config?.bgColor} ${className}`}>
+    <div className={`inline-flex items-center space-x-2 px-3 py-1.5 rounded-md £{config?.bgColor} £{className}`}>
       <Icon 
         name={config?.icon} 
         size={14} 
         className={config?.iconColor}
       />
-      <span className={`text-sm font-medium ${config?.textColor}`}>
+      <span className={`text-sm font-medium £{config?.textColor}`}>
         {config?.label}
       </span>
       {showTimestamp && timestamp && (
         <>
-          <span className={`text-xs ${config?.textColor} opacity-70`}>•</span>
-          <span className={`text-xs font-mono ${config?.textColor} opacity-70`}>
+          <span className={`text-xs £{config?.textColor} opacity-70`}>•</span>
+          <span className={`text-xs font-mono £{config?.textColor} opacity-70`}>
             {formatTimestamp(timestamp)}
           </span>
         </>

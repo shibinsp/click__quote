@@ -13,8 +13,8 @@ const FilterPanel = ({ filters, onFilterChange, onGenerateReport }) => {
     { value: 'custom', label: 'Custom range' }
   ];
 
-  const postcodeOptions = [
-    { value: 'all', label: 'All Postcodes' },
+  const zipcodeOptions = [
+    { value: 'all', label: 'All Zip Codes' },
     { value: 'SW1', label: 'SW1 - Westminster' },
     { value: 'N1', label: 'N1 - Islington' },
     { value: 'E1', label: 'E1 - Whitechapel' },
@@ -72,13 +72,13 @@ const FilterPanel = ({ filters, onFilterChange, onGenerateReport }) => {
 
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            Postcode Area
+            Zip Code Area
           </label>
           <Select
-            value={filters?.postcode}
-            onChange={(value) => onFilterChange?.('postcode', value)}
-            options={postcodeOptions}
-            placeholder="Select postcode"
+            value={filters?.zipcode}
+              onChange={(value) => onFilterChange?.('zipcode', value)}
+              options={zipcodeOptions}
+              placeholder="Select zip code"
           />
         </div>
 
@@ -115,7 +115,7 @@ const FilterPanel = ({ filters, onFilterChange, onGenerateReport }) => {
           variant="ghost"
           onClick={() => {
             onFilterChange?.('dateRange', '30days');
-            onFilterChange?.('postcode', 'all');
+            onFilterChange?.('zipcode', 'all');
             onFilterChange?.('status', 'all');
             onFilterChange?.('template', 'all');
           }}

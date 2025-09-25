@@ -19,7 +19,7 @@ const GeographicalChart = ({ data }) => {
           Geographical Performance
         </h3>
         <p className="text-sm text-muted-foreground">
-          Quotation density and performance by postcode areas
+          Quotation density and performance by zip code areas
         </p>
       </div>
       
@@ -28,7 +28,7 @@ const GeographicalChart = ({ data }) => {
           <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
             <XAxis 
-              dataKey="postcode" 
+              dataKey="zipcode" 
               stroke="#64748B"
               fontSize={12}
             />

@@ -10,6 +10,7 @@ const Header = () => {
   const navigationItems = [
     { label: 'Dashboard', path: '/dashboard', icon: 'LayoutDashboard' },
     { label: 'Map View', path: '/map-view', icon: 'Map' },
+    { label: 'Quotations', path: '/quotations', icon: 'FileText' },
     { label: 'Create Quote', path: '/create-quotation', icon: 'Plus' },
     { label: 'Templates', path: '/template-management', icon: 'FileText' },
     { label: 'Reports', path: '/reports-analytics', icon: 'BarChart3' },
@@ -23,16 +24,18 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-card border-b border-border z-navigation">
+    <header className="fixed top-0 left-0 right-0 bg-primary border-b border-border z-navigation">
       <div className="flex items-center justify-between h-16 px-6">
         {/* Logo */}
         <Link to="/dashboard" className="flex items-center space-x-3">
-          <div className="flex items-center justify-center w-8 h-8 bg-primary rounded-md">
-            <Icon name="Zap" size={20} color="white" />
-          </div>
+          <img 
+            src="/image.png" 
+            alt="Click & Quote Logo" 
+            className="w-8 h-8 object-contain"
+          />
           <div className="flex flex-col">
-            <span className="text-lg font-semibold text-foreground">Click & Quote</span>
-            <span className="text-xs text-muted-foreground -mt-1">Electrical Solutions</span>
+            <span className="text-lg font-semibold text-primary-foreground">Click & Quote</span>
+            <span className="text-xs text-primary-foreground/80 -mt-1">Electrical Solutions</span>
           </div>
         </Link>
 
@@ -44,7 +47,7 @@ const Header = () => {
               to={item?.path}
               className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-hover ${
                 isActivePath(item?.path)
-                  ? 'text-primary bg-primary/10' :'text-muted-foreground hover:text-foreground hover:bg-muted'
+                  ? 'text-accent bg-accent/20 font-semibold' :'text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10'
               }`}
             >
               <Icon name={item?.icon} size={16} />
@@ -57,7 +60,7 @@ const Header = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden"
+          className="md:hidden text-primary-foreground hover:bg-primary-foreground/10"
           onClick={toggleMobileMenu}
         >
           <Icon name={isMobileMenuOpen ? 'X' : 'Menu'} size={20} />
@@ -65,7 +68,7 @@ const Header = () => {
       </div>
       {/* Mobile Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-card border-t border-border shadow-elevation-2">
+        <div className="md:hidden bg-primary border-t border-primary-foreground/20 shadow-elevation-2">
           <nav className="px-4 py-2 space-y-1">
             {navigationItems?.map((item) => (
               <Link
@@ -74,7 +77,7 @@ const Header = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`flex items-center space-x-3 px-3 py-3 rounded-md text-sm font-medium transition-hover ${
                   isActivePath(item?.path)
-                    ? 'text-primary bg-primary/10' :'text-muted-foreground hover:text-foreground hover:bg-muted'
+                    ? 'text-accent bg-accent/20 font-semibold' :'text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10'
                 }`}
               >
                 <Icon name={item?.icon} size={18} />

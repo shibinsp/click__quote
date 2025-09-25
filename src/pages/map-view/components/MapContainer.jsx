@@ -16,7 +16,8 @@ const MapContainer = forwardRef(({
   onMarkerClick, 
   onMapClick, 
   selectedLocation,
-  filteredQuotations 
+  filteredQuotations,
+  children
 }, ref) => {
   const mapRef = useRef(null);
   const mapInstanceRef = useRef(null);
@@ -80,11 +81,62 @@ const MapContainer = forwardRef(({
       keyboard: true
     });
 
-    // Add tile layer
-    L?.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors',
-      maxZoom: 19
-    })?.addTo(map);
+    // Add tile layer with multiple providers and fallback
+    const tileProviders = [
+      {
+        url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        options: {
+          attribution: '© OpenStreetMap contributors',
+          maxZoom: 19,
+          subdomains: ['a', 'b', 'c']
+        }
+      },
+      {
+        url: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
+        options: {
+          attribution: '© OpenStreetMap contributors, © CartoDB',
+          maxZoom: 19,
+          subdomains: ['a', 'b', 'c', 'd']
+        }
+      },
+      {
+        url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+        options: {
+          attribution: '© OpenStreetMap contributors, © CARTO',
+          maxZoom: 19,
+          subdomains: ['a', 'b', 'c', 'd']
+        }
+      }
+    ];
+
+    // Try to add tile layer with fallback
+    let tileLayerAdded = false;
+    for (let i = 0; i < tileProviders.length && !tileLayerAdded; i++) {
+      try {
+        const tileLayer = L?.tileLayer(tileProviders[i].url, tileProviders[i].options);
+        
+        // Add error handling for tile loading
+        tileLayer?.on('tileerror', (e) => {
+          console.warn(`Tile loading error for provider ${i + 1}:`, e);
+          
+          // If this is the primary provider and it fails, try the next one
+          if (i === 0 && tileProviders.length > 1) {
+            console.log('Switching to fallback tile provider...');
+            map?.removeLayer(tileLayer);
+            
+            // Try the next provider
+            const fallbackLayer = L?.tileLayer(tileProviders[1].url, tileProviders[1].options);
+            fallbackLayer?.addTo(map);
+          }
+        });
+        
+        tileLayer?.addTo(map);
+        tileLayerAdded = true;
+        console.log(`Successfully loaded tile provider ${i + 1}`);
+      } catch (error) {
+        console.warn(`Failed to load tile provider ${i + 1}:`, error);
+      }
+    }
 
     // Handle map clicks for location selection only (not for polygon drawing in drag mode)
     map?.on('click', (e) => {
@@ -481,9 +533,17 @@ const MapContainer = forwardRef(({
 
   return (
     <div className="relative w-full h-full">
+      {/* Zip Code Search - Top center of map */}
+      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-[1000] pointer-events-auto">
+        <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-lg border border-gray-200 min-w-[320px]">
+          {/* This will be passed as children from parent */}
+          {children}
+        </div>
+      </div>
+
       {/* Drawing Mode Indicator */}
       {isDrawingMode && (
-        <div className="absolute top-4 left-4 z-[1000] bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg">
+        <div className="absolute top-20 left-4 z-[1000] bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg">
           <div className="flex items-center space-x-2">
             <Icon name="Edit" size={16} />
             <span className="text-sm font-medium">Drawing Mode Active</span>

@@ -5,7 +5,7 @@ const RoleIndicatorBadge = ({ role = 'User', className = '' }) => {
   const isAdmin = role === 'Admin';
   
   return (
-    <div className={`flex items-center space-x-1 px-2 py-1 rounded-md text-xs font-medium ${
+    <div className={`flex items-center space-x-1 px-2 py-1 rounded-md text-xs font-medium £{
       isAdmin 
         ? 'bg-primary/10 text-primary' :'bg-muted text-muted-foreground'
     } ${className}`}>

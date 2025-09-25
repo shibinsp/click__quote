@@ -7,54 +7,60 @@ export default {
   theme: {
     extend: {
       colors: {
-        border: 'var(--color-border)', // slate-200
+        border: 'var(--color-border)', // UKPN light gray
         input: 'var(--color-input)', // white
-        ring: 'var(--color-ring)', // blue-800
-        background: 'var(--color-background)', // slate-50
-        foreground: 'var(--color-foreground)', // slate-900
+        ring: 'var(--color-ring)', // UKPN deep red
+        background: 'var(--color-background)', // white
+        foreground: 'var(--color-foreground)', // black
         primary: {
-          DEFAULT: 'var(--color-primary)', // blue-800
+          DEFAULT: 'var(--color-primary)', // UKPN deep red #A60B0B
           foreground: 'var(--color-primary-foreground)', // white
         },
         secondary: {
-          DEFAULT: 'var(--color-secondary)', // orange-500
-          foreground: 'var(--color-secondary-foreground)', // white
+          DEFAULT: 'var(--color-secondary)', // UKPN light gray #F4F4F4
+          foreground: 'var(--color-secondary-foreground)', // black
         },
         destructive: {
-          DEFAULT: 'var(--color-destructive)', // red-600
+          DEFAULT: 'var(--color-destructive)', // UKPN deep red
           foreground: 'var(--color-destructive-foreground)', // white
         },
         muted: {
-          DEFAULT: 'var(--color-muted)', // slate-100
-          foreground: 'var(--color-muted-foreground)', // slate-500
+          DEFAULT: 'var(--color-muted)', // UKPN light gray #F4F4F4
+          foreground: 'var(--color-muted-foreground)', // medium gray
         },
         accent: {
-          DEFAULT: 'var(--color-accent)', // sky-500
-          foreground: 'var(--color-accent-foreground)', // white
+          DEFAULT: 'var(--color-accent)', // UKPN orange #FF9900
+          foreground: 'var(--color-accent-foreground)', // black
         },
         popover: {
           DEFAULT: 'var(--color-popover)', // white
-          foreground: 'var(--color-popover-foreground)', // slate-900
+          foreground: 'var(--color-popover-foreground)', // black
         },
         card: {
           DEFAULT: 'var(--color-card)', // white
-          foreground: 'var(--color-card-foreground)', // slate-900
+          foreground: 'var(--color-card-foreground)', // black
         },
         success: {
-          DEFAULT: 'var(--color-success)', // emerald-600
+          DEFAULT: 'var(--color-success)', // green for success
           foreground: 'var(--color-success-foreground)', // white
         },
         warning: {
-          DEFAULT: 'var(--color-warning)', // amber-600
-          foreground: 'var(--color-warning-foreground)', // white
+          DEFAULT: 'var(--color-warning)', // UKPN orange variant #F2994B
+          foreground: 'var(--color-warning-foreground)', // black
         },
         error: {
-          DEFAULT: 'var(--color-error)', // red-600
+          DEFAULT: 'var(--color-error)', // UKPN deep red
           foreground: 'var(--color-error-foreground)', // white
         },
         surface: 'var(--color-surface)', // white
-        'text-primary': 'var(--color-text-primary)', // slate-900
-        'text-secondary': 'var(--color-text-secondary)', // slate-500
+        'text-primary': 'var(--color-text-primary)', // black
+        'text-secondary': 'var(--color-text-secondary)', // gray
+        // UKPN specific colors
+        'ukpn-red': 'var(--color-ukpn-red)', // #A60B0B
+        'ukpn-orange': 'var(--color-ukpn-orange)', // #FF9900
+        'ukpn-orange-alt': 'var(--color-ukpn-orange-alt)', // #F2994B
+        'ukpn-gray-light': 'var(--color-ukpn-gray-light)', // #F4F4F4
+        'ukpn-gray-medium': 'var(--color-ukpn-gray-medium)', // #EAEAEA
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

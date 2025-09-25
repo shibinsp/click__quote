@@ -12,21 +12,21 @@ const AnalyticsOverview = ({ data }) => {
     },
     {
       title: 'Total Revenue',
-      value: `£${(data?.totalRevenue / 1000)?.toFixed(0) || '0'}K`,
+      value: `££{(data?.totalRevenue / 1000)?.toFixed(0) || '0'}K`,
       icon: 'DollarSign',
       trend: data?.trends?.revenue || '+0%',
       color: 'success'
     },
     {
       title: 'Conversion Rate',
-      value: `${data?.conversionRate || '0'}%`,
+      value: `£{data?.conversionRate || '0'}%`,
       icon: 'TrendingUp',
       trend: data?.trends?.conversion || '+0%',
       color: 'accent'
     },
     {
       title: 'Avg Quote Value',
-      value: `£${(data?.avgQuoteValue / 1000)?.toFixed(1) || '0'}K`,
+      value: `££{(data?.avgQuoteValue / 1000)?.toFixed(1) || '0'}K`,
       icon: 'Target',
       trend: data?.trends?.avgValue || '+0%',
       color: 'secondary'
@@ -57,7 +57,7 @@ const AnalyticsOverview = ({ data }) => {
       {metrics?.map((metric, index) => (
         <div key={index} className="bg-card border border-border rounded-lg p-6 shadow-elevation-1">
           <div className="flex items-center justify-between mb-4">
-            <div className={`flex items-center justify-center w-12 h-12 rounded-lg ${colorClasses?.[metric?.color]}`}>
+            <div className={`flex items-center justify-center w-12 h-12 rounded-lg £{colorClasses?.[metric?.color]}`}>
               <Icon name={metric?.icon} size={24} />
             </div>
             <div className="flex items-center space-x-1">
@@ -66,7 +66,7 @@ const AnalyticsOverview = ({ data }) => {
                 size={14} 
                 className={getTrendColor(metric?.trend)}
               />
-              <span className={`text-xs font-medium ${getTrendColor(metric?.trend)}`}>
+              <span className={`text-xs font-medium £{getTrendColor(metric?.trend)}`}>
                 {metric?.trend}
               </span>
             </div>

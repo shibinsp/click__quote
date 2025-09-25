@@ -23,7 +23,7 @@ const ReportsAnalytics = () => {
   const [showExportModal, setShowExportModal] = useState(false);
   const [filters, setFilters] = useState({
     dateRange: '30days',
-    postcode: 'all',
+    zipcode: 'all',
     status: 'all',
     template: 'all'
   });
@@ -61,7 +61,7 @@ const ReportsAnalytics = () => {
           },
           {
             id: 'RPT-002',
-            name: 'Postcode Performance Analysis',
+            name: 'Zip Code Performance Analysis',
             type: 'Geographical',
             generatedDate: '2024-09-23',
             status: 'completed',
@@ -98,11 +98,11 @@ const ReportsAnalytics = () => {
             { month: 'Sep', revenue: 615000, target: 520000 }
           ],
           geographical: [
-            { postcode: 'SW1', quotations: 145, revenue: 325000, conversion: 72 },
-            { postcode: 'N1', quotations: 132, revenue: 285000, conversion: 68 },
-            { postcode: 'E1', quotations: 118, revenue: 245000, conversion: 65 },
-            { postcode: 'W1', quotations: 156, revenue: 385000, conversion: 75 },
-            { postcode: 'SE1', quotations: 98, revenue: 195000, conversion: 62 }
+            { zipcode: 'SW1', quotations: 145, revenue: 325000, conversion: 72 },
+    { zipcode: 'N1', quotations: 132, revenue: 285000, conversion: 68 },
+    { zipcode: 'E1', quotations: 118, revenue: 245000, conversion: 65 },
+    { zipcode: 'W1', quotations: 156, revenue: 385000, conversion: 75 },
+    { zipcode: 'SE1', quotations: 98, revenue: 195000, conversion: 62 }
           ]
         }
       };
@@ -208,7 +208,7 @@ const ReportsAnalytics = () => {
                 <GeographicalChart data={analyticsData?.chartData?.geographical} />
                 <div className="bg-card border border-border rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-foreground mb-4">
-                    Postcode Performance Analysis
+                    Zip Code Performance Analysis
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="text-center">

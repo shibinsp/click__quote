@@ -250,7 +250,7 @@ const TemplateCreationPanel = ({ isOpen, onClose, onSaveTemplate, editingTemplat
                               {field?.type === 'select' ? 'Select option...' : 
                                field?.type === 'textarea' ? 'Text area...' :
                                field?.type === 'date' ? 'MM/DD/YYYY' :
-                               field?.type === 'currency' ? '$0.00' :
+                               field?.type === 'currency' ? '£0.00' :
                                field?.type === 'number'? '0' : 'Sample text...'}
                             </span>
                           </div>

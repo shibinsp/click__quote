@@ -17,7 +17,7 @@ const ActivityHistoryTab = ({ user }) => {
       metadata: {
         quotationId: 'QT-2024-001',
         location: 'Downtown Office',
-        amount: '$15,750.00'
+        amount: '£15,750.00'
       }
     },
     {
@@ -30,7 +30,7 @@ const ActivityHistoryTab = ({ user }) => {
       metadata: {
         quotationId: 'QT-2024-002',
         submittedBy: 'John Smith',
-        amount: '$8,500.00'
+        amount: '£8,500.00'
       }
     },
     {
@@ -54,7 +54,7 @@ const ActivityHistoryTab = ({ user }) => {
       metadata: {
         quotationId: 'QT-2024-003',
         location: 'Warehouse District',
-        amount: '$22,300.00'
+        amount: '£22,300.00'
       }
     },
     {

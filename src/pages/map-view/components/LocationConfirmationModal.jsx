@@ -72,7 +72,7 @@ const LocationConfirmationModal = ({
                 loading="lazy"
                 title="Selected Location"
                 referrerPolicy="no-referrer-when-downgrade"
-                src={`https://www.google.com/maps?q=${location?.lat},${location?.lng}&z=15&output=embed`}
+                src={`https://www.google.com/maps?q=£{location?.lat},£{location?.lng}&z=15&output=embed`}
               />
             </div>
           </div>

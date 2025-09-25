@@ -298,7 +298,7 @@ const CreateQuotation = () => {
             <div className="p-6 bg-muted/30 rounded-lg text-center">
               <p className="text-sm text-muted-foreground mb-2">Total Amount (including 8% tax)</p>
               <p className="text-3xl font-bold text-primary">
-                ${(items?.reduce((sum, item) => sum + ((item?.quantity || 0) * (item?.unitPrice || 0)), 0) * 1.08)?.toFixed(2)}
+                £{(items?.reduce((sum, item) => sum + ((item?.quantity || 0) * (item?.unitPrice || 0)), 0) * 1.08)?.toFixed(2)}
               </p>
             </div>
             {/* Action Buttons */}
