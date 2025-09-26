@@ -13,7 +13,7 @@ const Login = () => {
     // Check if user is already authenticated
     const authToken = localStorage.getItem('authToken');
     if (authToken) {
-      navigate('/dashboard');
+      navigate('/home');
     }
   }, [navigate]);
 

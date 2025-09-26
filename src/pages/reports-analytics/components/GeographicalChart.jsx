@@ -19,7 +19,7 @@ const GeographicalChart = ({ data }) => {
           Geographical Performance
         </h3>
         <p className="text-sm text-muted-foreground">
-          Quotation density and performance by zip code areas
+          Quotation density and performance by post code areas
         </p>
       </div>
       

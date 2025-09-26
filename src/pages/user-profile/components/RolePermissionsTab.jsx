@@ -6,7 +6,7 @@ const RolePermissionsTab = ({ user }) => {
   const getPermissions = (role) => {
     const permissions = {
       Admin: [
-        { name: 'Full Dashboard Access', description: 'View all system statistics and analytics', icon: 'LayoutDashboard', granted: true },
+        { name: 'Full Home Access', description: 'View all system statistics and analytics', icon: 'Home', granted: true },
         { name: 'Quotation Management', description: 'Create, edit, approve, and delete all quotations', icon: 'FileText', granted: true },
         { name: 'Template Management', description: 'Create, modify, and delete quotation templates', icon: 'Settings', granted: true },
         { name: 'User Management', description: 'Manage user accounts and permissions', icon: 'Users', granted: true },
@@ -16,7 +16,7 @@ const RolePermissionsTab = ({ user }) => {
         { name: 'Export & Reports', description: 'Generate and export system reports', icon: 'Download', granted: true }
       ],
       User: [
-        { name: 'Dashboard Access', description: 'View personal dashboard and statistics', icon: 'LayoutDashboard', granted: true },
+        { name: 'Home Access', description: 'View personal Home and statistics', icon: 'Home', granted: true },
         { name: 'Create Quotations', description: 'Create new quotations using available templates', icon: 'Plus', granted: true },
         { name: 'Edit Own Quotations', description: 'Modify quotations in draft status', icon: 'Edit', granted: true },
         { name: 'Template Usage', description: 'Use existing templates for quotation creation', icon: 'FileText', granted: true },

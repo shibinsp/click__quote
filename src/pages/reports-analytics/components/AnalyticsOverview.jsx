@@ -11,9 +11,9 @@ const AnalyticsOverview = ({ data }) => {
       color: 'primary'
     },
     {
-      title: 'Total Revenue',
+      title: 'Total Quotation Value',
       value: `£${(data?.totalRevenue / 1000)?.toFixed(0) || '0'}K`,
-      icon: 'DollarSign',
+      icon: 'PoundSterling',
       trend: data?.trends?.revenue || '+0%',
       color: 'success'
     },

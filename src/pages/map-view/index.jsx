@@ -8,7 +8,7 @@ import LocationConfirmationModal from './components/LocationConfirmationModal';
 import MapLegend from './components/MapLegend';
 import QuotationSummaryCard from './components/QuotationSummaryCard';
 import QuotationTable from './components/QuotationTable';
-import ZipCodeSearch from './components/ZipCodeSearch';
+import PostcodeSearch from './components/PostcodeSearch';
 import Icon from '../../components/AppIcon';
 
 const MapView = () => {
@@ -22,6 +22,8 @@ const MapView = () => {
   const [filteredQuotations, setFilteredQuotations] = useState(null);
   const [showTableView, setShowTableView] = useState(false);
   const [searchNotification, setSearchNotification] = useState(null);
+  const [quotations, setQuotations] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // Filter state
   const [filters, setFilters] = useState({
@@ -32,8 +34,70 @@ const MapView = () => {
     dateTo: ''
   });
 
-  // Updated quotations data to match template structure with UK locations and pounds
-  const quotations = [
+  // Fetch quotations from backend API
+  const fetchQuotations = async () => {
+    try {
+      setLoading(true);
+      // Use public endpoint that doesn't require authentication
+      const response = await fetch('http://localhost:9000/api/v1/quotations/public', {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Fetched quotations from API:', data.length);
+        // Transform backend data to match frontend format
+        const transformedQuotations = data.map(quotation => ({
+          serviceOrderQuotationId: quotation.service_order_quotation_id,
+          serviceOrderQuotationDescription: quotation.description,
+          createdOn: new Date(quotation.created_at).toLocaleDateString('en-GB') + ' ' + new Date(quotation.created_at).toLocaleTimeString('en-GB'),
+          soldToParty: quotation.sold_to_party || quotation.customer_name,
+          status: quotation.status,
+          externalReference: quotation.external_reference,
+          quotationValidFrom: quotation.quotation_valid_from ? new Date(quotation.quotation_valid_from).toLocaleDateString('en-GB') : '',
+          quotationValidTo: quotation.quotation_valid_to ? new Date(quotation.quotation_valid_to).toLocaleDateString('en-GB') : '',
+          location: quotation.location_data ? {
+            lat: quotation.location_data.lat,
+            lng: quotation.location_data.lng,
+            name: quotation.location_data.area || quotation.location_data.address
+          } : null,
+          id: quotation.service_order_quotation_id,
+          customerName: quotation.customer_name,
+          customerEmail: quotation.customer_email,
+          customerPhone: quotation.customer_phone,
+          templateType: quotation.template_type,
+          createdBy: "System User", // You might want to fetch user details
+          createdAt: quotation.created_at,
+          updatedAt: quotation.updated_at,
+          totalAmount: quotation.total_amount,
+          items: quotation.items || []
+        })).filter(q => q.location); // Only include quotations with location data
+        
+        console.log('Transformed quotations with location:', transformedQuotations.length);
+        setQuotations(transformedQuotations);
+      } else {
+        console.error('Failed to fetch quotations');
+        // Fallback to empty array if API fails
+        setQuotations([]);
+      }
+    } catch (error) {
+      console.error('Error fetching quotations:', error);
+      // Fallback to empty array if API fails
+      setQuotations([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Load quotations on component mount
+  useEffect(() => {
+    fetchQuotations();
+  }, []);
+
+  // Fallback quotations data for development/demo purposes
+  const fallbackQuotations = [
     {
       serviceOrderQuotationId: "32000061311",
       serviceOrderQuotationDescription: "33kV Distribution Upgrade Manchester",
@@ -1074,7 +1138,8 @@ const MapView = () => {
     }
   ];
 
-  // Ref to access map instance
+  // Use fetched quotations if available, otherwise fallback to hardcoded data
+  const displayQuotations = quotations.length > 0 ? quotations : fallbackQuotations;
   const mapRef = useRef(null);
 
   // Handle URL parameters for initial location and template duplication
@@ -1098,25 +1163,58 @@ const MapView = () => {
     }
   }, [searchParams]);
 
-  // Handle zip code search location found
+  // Handle postcode search location found
   const handleLocationFound = useCallback((location) => {
     if (mapRef?.current && location?.lat && location?.lng) {
-      // Update map view to show the found location
-      mapRef?.current?.setView([location?.lat, location?.lng], 12);
-      
-      // Set temporary marker for the searched location
-      setSelectedLocation(location);
-      
-      // Show success notification
-      setSearchNotification({
-        type: 'success',
-        message: `Found: ${location?.postcode || location?.name}`
+      // Update map view to show the found location with smooth animation
+      mapRef?.current?.setView([location?.lat, location?.lng], 14, {
+        animate: true,
+        duration: 1.5
       });
       
-      // Clear notification after 3 seconds
+      // Set temporary marker for the searched location
+      setSelectedLocation({
+        ...location,
+        isSearchResult: true,
+        searchType: location?.type || 'postcode'
+      });
+      
+      // Show success notification with detailed location info
+      const locationInfo = location?.postcode || location?.name;
+      const regionInfo = location?.admin_district || location?.region;
+      const displayMessage = regionInfo ? 
+        `Found: ${locationInfo} (${regionInfo})` : 
+        `Found: ${locationInfo}`;
+      
+      setSearchNotification({
+        type: 'success',
+        message: displayMessage
+      });
+      
+      // Auto-zoom to show nearby quotations if any exist
+      const nearbyQuotations = quotations.filter(q => {
+        if (!q.location) return false;
+        const distance = calculateDistance(
+          location.lat, location.lng,
+          q.location.lat, q.location.lng
+        );
+        return distance <= 5; // Within 5km
+      });
+      
+      if (nearbyQuotations.length > 0) {
+        // Show notification about nearby quotations
+        setTimeout(() => {
+          setSearchNotification({
+            type: 'success',
+            message: `Found ${nearbyQuotations.length} quotation${nearbyQuotations.length > 1 ? 's' : ''} nearby`
+          });
+        }, 2000);
+      }
+      
+      // Clear notification after 4 seconds
       setTimeout(() => {
         setSearchNotification(null);
-      }, 3000);
+      }, 4000);
     } else {
       // Handle invalid location data
       setSearchNotification({
@@ -1128,7 +1226,21 @@ const MapView = () => {
         setSearchNotification(null);
       }, 3000);
     }
-  }, []);
+  }, [quotations]);
+
+  // Helper function to calculate distance between two points
+  const calculateDistance = (lat1, lng1, lat2, lng2) => {
+    const R = 6371; // Radius of the Earth in kilometers
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLng = (lng2 - lng1) * Math.PI / 180;
+    const a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+      Math.sin(dLng/2) * Math.sin(dLng/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    const distance = R * c; // Distance in kilometers
+    return distance;
+  };
 
   // Handle search error
   const handleSearchError = useCallback((errorMessage) => {
@@ -1264,26 +1376,26 @@ const MapView = () => {
 
           {showTableView ? (
             // Table View
-            (<div className="h-full overflow-hidden">
+            <div className="h-full overflow-hidden">
               <QuotationTable
-                quotations={filteredQuotations || quotations}
+                quotations={filteredQuotations || displayQuotations}
                 onViewDetails={(id) => navigate(`/quotation-details?id=${id}`)}
               />
-            </div>)
+            </div>
           ) : (
             // Map View (existing content)
             (<>
-              {/* Map Container with ZipCodeSearch inside */}
+              {/* Map Container with PostcodeSearch inside */}
               <MapContainer
                 ref={mapRef}
-                quotations={quotations}
+                quotations={displayQuotations}
                 filteredQuotations={filteredQuotations}
                 onMarkerClick={handleMarkerClick}
                 onMapClick={handleMapClick}
                 selectedLocation={selectedLocation}
               >
-                {/* ZipCodeSearch as child of MapContainer */}
-                <ZipCodeSearch 
+                {/* PostcodeSearch as child of MapContainer */}
+            <PostcodeSearch 
                   onLocationFound={handleLocationFound}
                   onSearchError={handleSearchError}
                 />
@@ -1312,12 +1424,12 @@ const MapView = () => {
                 filters={filters}
                 onFiltersChange={handleFiltersChange}
                 onClearFilters={handleClearFilters}
-                quotations={quotations}
+                quotations={displayQuotations}
               />
               {/* Quotation Summary Card - Desktop Only */}
               <div className="hidden lg:block">
                 <QuotationSummaryCard
-                  quotations={quotations}
+                  quotations={displayQuotations}
                   filteredQuotations={filteredQuotations}
                   onCreateQuotation={handleCreateQuotation}
                 />
@@ -1325,7 +1437,7 @@ const MapView = () => {
               {/* Map Legend - Desktop Only */}
               <div className="hidden md:block">
                 <MapLegend
-                  quotations={filteredQuotations || quotations}
+                  quotations={filteredQuotations || displayQuotations}
                 />
               </div>
               {/* Quick Action Floating Button - Mobile Only */}

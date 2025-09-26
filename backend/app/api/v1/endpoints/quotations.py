@@ -45,6 +45,19 @@ def read_quotations(
     return quotations
 
 
+@router.get("/public", response_model=List[quotation_schemas.Quotation])
+def read_quotations_public(
+    db: Session = Depends(get_db),
+    skip: int = 0,
+    limit: int = 100,
+) -> Any:
+    """
+    Retrieve all quotations without authentication (for map view)
+    """
+    quotations = db.query(models.Quotation).offset(skip).limit(limit).all()
+    return quotations
+
+
 @router.post("/", response_model=quotation_schemas.Quotation)
 def create_quotation(
     *,
@@ -248,7 +261,7 @@ def get_quotation_stats(
     approved_quotations = query.filter(models.Quotation.status == "approved").count()
     rejected_quotations = query.filter(models.Quotation.status == "rejected").count()
     
-    # Calculate total revenue from approved quotations
+    # Calculate Total Quotation Value from approved quotations
     total_revenue = db.query(models.Quotation.total_amount).filter(
         and_(
             models.Quotation.status == "approved",

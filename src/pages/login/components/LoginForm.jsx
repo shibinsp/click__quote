@@ -87,13 +87,13 @@ const LoginForm = ({ onAutoFill }) => {
         localStorage.setItem('userRole', 'Admin');
         localStorage.setItem('userEmail', email);
         localStorage.setItem('authToken', 'mock-jwt-token-admin');
-        navigate('/dashboard');
+        navigate('/home');
       } else if (email === mockCredentials?.user?.email && password === mockCredentials?.user?.password) {
         // User login
         localStorage.setItem('userRole', 'User');
         localStorage.setItem('userEmail', email);
         localStorage.setItem('authToken', 'mock-jwt-token-user');
-        navigate('/dashboard');
+        navigate('/home');
       } else {
         // Invalid credentials
         setErrors({

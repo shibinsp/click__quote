@@ -12,13 +12,13 @@ from app.api.v1.endpoints.auth import get_current_user
 router = APIRouter()
 
 
-@router.get("/dashboard", response_model=analytics_schemas.DashboardMetrics)
-def get_dashboard_metrics(
+@router.get("/Dashboard", response_model=analytics_schemas.DashboardMetrics)
+def get_Dashboard_metrics(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_user),
 ) -> Any:
     """
-    Get dashboard metrics and overview
+    Get Dashboard metrics and overview
     """
     # Base query filter
     base_filter = models.Quotation.user_id == current_user.id if current_user.role != "admin" else True

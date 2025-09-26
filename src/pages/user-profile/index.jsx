@@ -159,11 +159,11 @@ const UserProfile = () => {
           {/* Back Navigation */}
           <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-6">
             <button
-              onClick={() => navigate('/dashboard')}
-              className="flex items-center space-x-1 hover:text-foreground transition-hover"
-            >
-              <Icon name="ArrowLeft" size={14} />
-              <span>Back to Dashboard</span>
+            onClick={() => navigate('/home')}
+            className="flex items-center space-x-1 hover:text-foreground transition-hover"
+          >
+            <Icon name="ArrowLeft" size={14} />
+            <span>Back to Home</span>
             </button>
             <Icon name="ChevronRight" size={14} />
             <span className="text-foreground">User Profile</span>
@@ -209,11 +209,11 @@ const UserProfile = () => {
             <div className="flex flex-wrap gap-3">
               <Button
                 variant="outline"
-                onClick={() => navigate('/dashboard')}
-                iconName="LayoutDashboard"
+                onClick={() => navigate('/home')}
+                iconName="Home"
                 iconPosition="left"
               >
-                Go to Dashboard
+                Go to Home
               </Button>
               <Button
                 variant="outline"

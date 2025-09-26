@@ -9,7 +9,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const navigationItems = [
-    { label: 'Dashboard', path: '/dashboard', icon: 'LayoutDashboard' },
+    { label: 'Home', path: '/home', icon: 'Home' },
     { label: 'Map View', path: '/map-view', icon: 'Map' },
     { label: 'Quotations', path: '/quotations', icon: 'FileText' },
     { label: 'Create Quote', path: '/create-quotation', icon: 'Plus' },
@@ -35,14 +35,14 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-primary border-b border-border z-navigation">
+    <header className="fixed top-0 left-0 right-0 bg-gradient-to-r from-orange-500 to-orange-600 border-b border-border z-navigation">
       <div className="flex items-center justify-between h-16 px-6">
         {/* Logo */}
-        <Link to="/dashboard" className="flex items-center space-x-3">
+        <Link to="/home" className="flex items-center space-x-3">
           <img 
             src="/image.png" 
             alt="Click & Quote Logo" 
-            className="w-8 h-8 object-contain"
+            className="w-12 h-12 object-contain"
           />
           <div className="flex flex-col">
             <span className="text-lg font-semibold text-primary-foreground">Click & Quote</span>

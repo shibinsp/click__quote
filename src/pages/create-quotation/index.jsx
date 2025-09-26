@@ -186,7 +186,7 @@ const CreateQuotation = () => {
     setIsSaving(false);
     
     // Show success message or redirect
-    navigate('/dashboard');
+    navigate('/home');
   };
 
   const handleSubmitForApproval = async () => {
@@ -211,8 +211,8 @@ const CreateQuotation = () => {
     console.log('Quotation submitted:', quotationData);
     setIsSaving(false);
     
-    // Redirect to quotation details or dashboard
-    navigate('/dashboard');
+    // Redirect to quotation details or home
+      navigate('/home');
   };
 
   const renderStepContent = () => {
@@ -351,10 +351,10 @@ const CreateQuotation = () => {
           <div className="mb-8">
             <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-2">
               <button
-                onClick={() => navigate('/dashboard')}
+                onClick={() => navigate('/home')}
                 className="hover:text-foreground transition-hover"
               >
-                Dashboard
+                Home
               </button>
               <Icon name="ChevronRight" size={14} />
               <span>{isDuplicateMode ? 'Duplicate Template Quotation' : 'Create Quotation'}</span>

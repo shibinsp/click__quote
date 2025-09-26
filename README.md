@@ -148,7 +148,7 @@ click-quote/
 ├── src/                    # React frontend
 │   ├── components/         # Reusable components
 │   ├── pages/             # Page components
-│   │   ├── dashboard/     # Dashboard page
+│   │   ├── Dashboard/     # Dashboard page
 │   │   ├── create-quotation/ # Quotation creation
 │   │   ├── quotation-details/ # Quotation details
 │   │   ├── map-view/      # Interactive map
@@ -162,7 +162,7 @@ click-quote/
 ## 🎯 Usage
 
 ### Creating a Quotation
-1. Navigate to **Create Quotation** from the dashboard
+1. Navigate to **Create Quotation** from the Dashboard
 2. Fill in customer details and project information
 3. Select or create a template
 4. Add line items and pricing

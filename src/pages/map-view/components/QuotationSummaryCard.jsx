@@ -31,12 +31,7 @@ const QuotationSummaryCard = ({
     return counts;
   };
 
-  const getRecentQuotations = () => {
-    return displayQuotations?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))?.slice(0, 3);
-  };
-
   const statusCounts = getStatusCounts();
-  const recentQuotations = getRecentQuotations();
 
   return (
     <div className={`absolute top-4 right-4 z-[1000] w-80 max-w-[calc(100vw-2rem)] ${className}`}>
@@ -92,27 +87,7 @@ const QuotationSummaryCard = ({
           </div>
         </div>
 
-        {/* Recent Activity */}
-        {recentQuotations?.length > 0 && (
-          <div>
-            <h4 className="text-sm font-medium text-foreground mb-2">Recent Activity</h4>
-            <div className="space-y-2">
-              {recentQuotations?.map(quotation => (
-                <div key={quotation?.id} className="flex items-center justify-between p-2 bg-muted rounded-lg">
-                  <div className="flex-1 min-w-0">
-                    <div className="text-sm font-medium text-foreground truncate">
-                      {quotation?.customerName}
-                    </div>
-                    <div className="text-xs text-muted-foreground">
-                      ID: {quotation?.id}
-                    </div>
-                  </div>
-                  <QuotationStatusIndicator status={quotation?.status} timestamp={quotation?.createdAt || new Date().toISOString()} />
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+
 
         {/* Empty State */}
         {totalQuotations === 0 && (

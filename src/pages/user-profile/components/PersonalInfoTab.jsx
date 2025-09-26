@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Input from '../../../components/ui/Input';
+import PostcodeInput from '../../../components/ui/PostcodeInput';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
 
@@ -186,12 +187,14 @@ const PersonalInfoTab = ({ user, onSave }) => {
               onChange={handleInputChange}
               disabled={!isEditing}
             />
-            <Input
+            <PostcodeInput
               label="Postcode"
               name="postcode"
+              placeholder="Enter UK postcode"
               value={formData?.postcode}
-              onChange={handleInputChange}
+              onChange={(value) => setFormData(prev => ({ ...prev, postcode: value }))}
               disabled={!isEditing}
+              showValidation={isEditing}
             />
           </div>
         </div>

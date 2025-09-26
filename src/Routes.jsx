@@ -5,7 +5,7 @@ import ErrorBoundary from "components/ErrorBoundary";
 import NotFound from "pages/NotFound";
 import MapView from './pages/map-view';
 import Login from './pages/login';
-import Dashboard from './pages/dashboard';
+import Home from './pages/home';
 import Quotations from './pages/quotations';
 import QuotationDetails from './pages/quotation-details';
 import TemplateManagement from './pages/template-management';
@@ -22,14 +22,14 @@ const Routes = () => {
         {/* Define your route here */}
         <Route path="/map-view" element={<MapView />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/quotations" element={<Quotations />} />
         <Route path="/quotation-details" element={<QuotationDetails />} />
         <Route path="/template-management" element={<TemplateManagement />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/create-quotation" element={<CreateQuotation />} />
         <Route path="/reports-analytics" element={<ReportsAnalytics />} />
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="*" element={<NotFound />} />
       </RouterRoutes>
       </ErrorBoundary>

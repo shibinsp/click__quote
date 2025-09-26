@@ -11,12 +11,12 @@ const ActivityHistoryTab = ({ user }) => {
       id: 1,
       type: 'quotation_created',
       title: 'Created quotation #QT-2024-001',
-      description: 'New quotation for Transformer Installation at Downtown Office',
+      description: 'New quotation for Transformer Installation at London Office',
       timestamp: '2025-09-24T12:30:00Z',
-      status: 'draft',
+      status: 'accepted',
       metadata: {
         quotationId: 'QT-2024-001',
-        location: 'Downtown Office',
+        location: 'London, UK',
         amount: '£15,750.00'
       }
     },
@@ -26,7 +26,7 @@ const ActivityHistoryTab = ({ user }) => {
       title: 'Approved quotation #QT-2024-002',
       description: 'Approved quotation for Electrical Panel Upgrade',
       timestamp: '2025-09-24T11:15:00Z',
-      status: 'approved',
+      status: 'in_process',
       metadata: {
         quotationId: 'QT-2024-002',
         submittedBy: 'John Smith',
@@ -48,12 +48,12 @@ const ActivityHistoryTab = ({ user }) => {
       id: 4,
       type: 'quotation_submitted',
       title: 'Submitted quotation #QT-2024-003',
-      description: 'Submitted quotation for review - Warehouse Electrical Setup',
+      description: 'Submitted quotation for review - London Warehouse Electrical Setup',
       timestamp: '2025-09-24T09:30:00Z',
-      status: 'submitted',
+      status: 'accepted',
       metadata: {
         quotationId: 'QT-2024-003',
-        location: 'Warehouse District',
+        location: 'London, UK',
         amount: '£22,300.00'
       }
     },
@@ -70,7 +70,7 @@ const ActivityHistoryTab = ({ user }) => {
       title: 'Rejected quotation #QT-2024-004',
       description: 'Rejected quotation due to incomplete specifications',
       timestamp: '2025-09-23T14:10:00Z',
-      status: 'rejected',
+      status: 'in_process',
       metadata: {
         quotationId: 'QT-2024-004',
         reason: 'Incomplete specifications',

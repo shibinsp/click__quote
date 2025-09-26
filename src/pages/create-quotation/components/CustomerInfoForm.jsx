@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from '../../../components/ui/Input';
+import PostcodeInput from '../../../components/ui/PostcodeInput';
 import Icon from '../../../components/AppIcon';
 
 const CustomerInfoForm = ({ customerData, onCustomerDataChange, errors }) => {
@@ -88,14 +89,18 @@ const CustomerInfoForm = ({ customerData, onCustomerDataChange, errors }) => {
             required
           />
 
-          <Input
+          <PostcodeInput
             label="Postcode"
-            type="text"
-            placeholder="Enter postcode"
+            placeholder="Enter UK postcode"
             value={customerData?.postcode || ''}
-            onChange={(e) => handleInputChange('postcode', e?.target?.value)}
+            onChange={(value) => handleInputChange('postcode', value)}
+            onValidation={(isValid) => {
+              // Optional: Handle validation status if needed
+              console.log('Postcode validation:', isValid);
+            }}
             error={errors?.postcode}
             required
+            showValidation={true}
           />
         </div>
       </div>

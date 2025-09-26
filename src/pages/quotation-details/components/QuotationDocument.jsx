@@ -108,41 +108,69 @@ const QuotationDocument = ({ quotation }) => {
         </div>
       </div>
       {/* UK Power Networks Header */}
-      <div className="relative">
-        <img 
-          src="/assets/images/uk-power-networks-logo.svg" 
-          alt="UK Power Networks Quotation Template" 
-          className="w-full h-auto max-h-32 object-contain bg-white p-4"
-        />
-        {/* Overlay form elements on the image template */}
-        <div className="absolute inset-0 p-4">
-          {/* Job Reference Section - positioned over the template */}
-          <div className="absolute top-8 left-8 right-8">
-            <div className="bg-white/90 p-3 rounded border">
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <label className="font-medium text-gray-700">Job Reference:</label>
-                  <input 
-                    type="text" 
-                    value={quotation?.id || ''} 
-                    className="w-full mt-1 px-2 py-1 border rounded text-sm"
-                    readOnly
-                  />
-                </div>
-                <div>
-                  <label className="font-medium text-gray-700">Site Address:</label>
-                  <input 
-                    type="text" 
-                    value={quotation?.siteAddress || ''} 
-                    className="w-full mt-1 px-2 py-1 border rounded text-sm"
-                    readOnly
-                  />
-                </div>
-              </div>
+      <div className="relative bg-white p-6 border-b border-gray-200">
+        <div className="flex items-center space-x-4">
+          {/* UK Power Networks Logo */}
+          <img 
+            src="/assets/images/image.png" 
+            alt="UK Power Networks Logo" 
+            className="w-20 h-20 object-contain bg-white border border-gray-300 rounded-lg p-1"
+            onError={(e) => {
+              console.log('Logo failed to load:', e.target.src);
+              e.target.style.display = 'block';
+              e.target.style.backgroundColor = '#f3f4f6';
+              e.target.style.border = '2px dashed #d1d5db';
+            }}
+          />
+          {/* Company Name and Title */}
+          <div className="flex-1">
+            <div className="flex items-center space-x-3 mb-2">
+              <h1 className="text-2xl font-bold text-red-600">UK Power Networks</h1>
+            </div>
+            <p className="text-gray-600 text-sm">Delivering your electricity</p>
+            <h2 className="text-lg font-semibold text-gray-800 mt-2">UK Power Networks - Quotation Document</h2>
+          </div>
+          {/* Additional Brand Image */}
+          <div className="flex-shrink-0">
+            <img 
+              src="/assets/images/image.png" 
+              alt="Brand Image" 
+              className="w-28 h-20 object-contain rounded-lg shadow-sm border border-gray-200 bg-white p-2"
+              onError={(e) => {
+                console.log('Brand image failed to load:', e.target.src);
+                e.target.style.display = 'block';
+                e.target.style.backgroundColor = '#f3f4f6';
+                e.target.style.border = '2px dashed #d1d5db';
+              }}
+            />
+          </div>
+        </div>
+        
+        {/* Job Reference Section */}
+        <div className="bg-gray-50 p-4 border-b border-gray-200">
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <label className="font-medium text-gray-700">Job Reference:</label>
+              <input 
+                type="text" 
+                value={quotation?.id || ''} 
+                className="w-full mt-1 px-2 py-1 border rounded text-sm"
+                readOnly
+              />
+            </div>
+            <div>
+              <label className="font-medium text-gray-700">Site Address:</label>
+              <input 
+                type="text" 
+                value={quotation?.siteAddress || ''} 
+                className="w-full mt-1 px-2 py-1 border rounded text-sm"
+                readOnly
+              />
             </div>
           </div>
         </div>
       </div>
+      
       {/* Editable Form Section */}
       <div className="p-8 bg-white">
         {/* New Editable Template Sections */}

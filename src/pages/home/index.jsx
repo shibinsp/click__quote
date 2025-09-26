@@ -7,10 +7,10 @@ import QuickActions from './components/QuickActions';
 import ActivityLog from './components/ActivityLog';
 import QuotationSearch from './components/QuotationSearch';
 
-const Dashboard = () => {
+const Home = () => {
   const [userRole, setUserRole] = useState('Admin'); // Mock user role
   
-  // Mock dashboard metrics
+  // Mock home metrics
   const mockMetrics = {
     totalQuotations: {
       value: 1847,
@@ -44,7 +44,7 @@ const Dashboard = () => {
     }
   };
 
-  const [dashboardData, setDashboardData] = useState({
+  const [homeData, setHomeData] = useState({
     metrics: mockMetrics,
     recentQuotations: [],
     activities: []
@@ -67,7 +67,7 @@ const Dashboard = () => {
       templateType: "Standard Quotation Template",
       location: "London, UK",
       totalAmount: 15750.00,
-      status: "submitted",
+      status: "accepted",
       createdAt: "2024-09-24T09:30:00Z"
     },
     {
@@ -75,9 +75,9 @@ const Dashboard = () => {
       customerName: "TechFlow Industries",
       customerEmail: "procurement@techflow.com",
       templateType: "Standard Quotation Template",
-      location: "Manchester, UK",
+      location: "London, UK",
       totalAmount: 8500.00,
-      status: "approved",
+      status: "in_process",
       createdAt: "2024-09-23T14:15:00Z"
     },
     {
@@ -85,9 +85,9 @@ const Dashboard = () => {
       customerName: "Green Energy Solutions",
       customerEmail: "orders@greenenergy.com",
       templateType: "Standard Quotation Template",
-      location: "Birmingham, UK",
+      location: "London, UK",
       totalAmount: 22300.00,
-      status: "under_review",
+      status: "accepted",
       createdAt: "2024-09-23T11:45:00Z"
     },
     {
@@ -95,9 +95,9 @@ const Dashboard = () => {
       customerName: "Metro Construction Ltd",
       customerEmail: "supplies@metroconstruction.com",
       templateType: "Standard Quotation Template",
-      location: "Leeds, UK",
+      location: "London, UK",
       totalAmount: 18900.00,
-      status: "draft",
+      status: "in_process",
       createdAt: "2024-09-22T16:20:00Z"
     },
     {
@@ -105,7 +105,7 @@ const Dashboard = () => {
       customerName: "Residential Plus Inc",
       customerEmail: "info@residentialplus.com",
       templateType: "Standard Quotation Template",
-      location: "Glasgow, UK",
+      location: "London, UK",
       totalAmount: 6750.00,
       status: "accepted",
       createdAt: "2024-09-22T10:10:00Z"
@@ -115,9 +115,9 @@ const Dashboard = () => {
       customerName: "Northern Electric Solutions",
       customerEmail: "contracts@northernelectric.co.uk",
       templateType: "Standard Quotation Template",
-      location: "Edinburgh, UK",
+      location: "London, UK",
       totalAmount: 12450.00,
-      status: "submitted",
+      status: "in_process",
       createdAt: "2024-09-21T15:45:00Z"
     },
     {
@@ -125,9 +125,9 @@ const Dashboard = () => {
       customerName: "Bristol Power Systems",
       customerEmail: "info@bristolpower.co.uk",
       templateType: "Standard Quotation Template",
-      location: "Bristol, UK",
+      location: "London, UK",
       totalAmount: 28750.00,
-      status: "approved",
+      status: "accepted",
       createdAt: "2024-09-21T11:20:00Z"
     },
     {
@@ -135,30 +135,10 @@ const Dashboard = () => {
       customerName: "Cardiff Construction Group",
       customerEmail: "procurement@cardiffconstruction.co.uk",
       templateType: "Standard Quotation Template",
-      location: "Cardiff, UK",
+      location: "London, UK",
       totalAmount: 19850.00,
-      status: "under_review",
+      status: "in_process",
       createdAt: "2024-09-20T13:30:00Z"
-    },
-    {
-      id: "QT-2024-007",
-      customerName: "Liverpool Electrical Services",
-      customerEmail: "quotes@liverpoolelectrical.co.uk",
-      templateType: "Standard Quotation Template",
-      location: "Liverpool, UK",
-      totalAmount: 5680.00,
-      status: "draft",
-      createdAt: "2024-09-20T09:15:00Z"
-    },
-    {
-      id: "QT-2024-006",
-      customerName: "Sheffield Industrial Ltd",
-      customerEmail: "orders@sheffieldindustrial.co.uk",
-      templateType: "Standard Quotation Template",
-      location: "Sheffield, UK",
-      totalAmount: 31200.00,
-      status: "accepted",
-      createdAt: "2024-09-19T16:40:00Z"
     }
   ];
 
@@ -205,16 +185,16 @@ const Dashboard = () => {
   ];
 
   useEffect(() => {
-    // Simulate loading dashboard data
-    const loadDashboardData = () => {
-      setDashboardData({
+    // Simulate loading home data
+    const loadHomeData = () => {
+      setHomeData({
         metrics: mockMetrics,
         recentQuotations: mockRecentQuotations,
         activities: mockActivities
       });
     };
 
-    loadDashboardData();
+    loadHomeData();
   }, [userRole]);
 
   const handleSearch = (query, results) => {
@@ -270,31 +250,31 @@ const Dashboard = () => {
             <div className="animate-bounce-in hover-lift" style={{ animationDelay: '0.1s' }}>
               <MetricsCard
                 title="Total Quotations"
-                value={dashboardData?.metrics?.totalQuotations?.value || 0}
+                value={homeData?.metrics?.totalQuotations?.value || 0}
                 icon="FileText"
-                trend={dashboardData?.metrics?.totalQuotations?.trend}
-                trendValue={dashboardData?.metrics?.totalQuotations?.trendValue}
-                color={dashboardData?.metrics?.totalQuotations?.color}
+                trend={homeData?.metrics?.totalQuotations?.trend}
+                trendValue={homeData?.metrics?.totalQuotations?.trendValue}
+                color={homeData?.metrics?.totalQuotations?.color}
               />
             </div>
             <div className="animate-bounce-in hover-lift" style={{ animationDelay: '0.2s' }}>
               <MetricsCard
                 title="Submitted quotation"
-                value={dashboardData?.metrics?.submittedQuotations?.value || 0}
+                value={homeData?.metrics?.submittedQuotations?.value || 0}
                 icon="CheckCircle"
-                trend={dashboardData?.metrics?.submittedQuotations?.trend}
-                trendValue={dashboardData?.metrics?.submittedQuotations?.trendValue}
-                color={dashboardData?.metrics?.submittedQuotations?.color}
+                trend={homeData?.metrics?.submittedQuotations?.trend}
+                trendValue={homeData?.metrics?.submittedQuotations?.trendValue}
+                color={homeData?.metrics?.submittedQuotations?.color}
               />
             </div>
             <div className="animate-bounce-in hover-lift" style={{ animationDelay: '0.3s' }}>
               <MetricsCard
-                title="Total Revenue"
-                value={dashboardData?.metrics?.totalRevenue?.value || '£0'}
-                icon="DollarSign"
-                trend={dashboardData?.metrics?.totalRevenue?.trend}
-                trendValue={dashboardData?.metrics?.totalRevenue?.trendValue}
-                color={dashboardData?.metrics?.totalRevenue?.color}
+                title="Total Quotation Value"
+                value={homeData?.metrics?.totalRevenue?.value || '£0'}
+                icon="PoundSterling"
+                trend={homeData?.metrics?.totalRevenue?.trend}
+                trendValue={homeData?.metrics?.totalRevenue?.trendValue}
+                color={homeData?.metrics?.totalRevenue?.color}
               />
             </div>
           </div>
@@ -311,7 +291,7 @@ const Dashboard = () => {
               {/* Recent Quotations Table */}
               <div className="animate-bounce-in" style={{ animationDelay: '0.6s' }}>
                 <RecentQuotationsTable 
-                  quotations={dashboardData?.recentQuotations}
+                  quotations={homeData?.recentQuotations}
                   userRole={currentUser?.role}
                 />
               </div>
@@ -326,7 +306,7 @@ const Dashboard = () => {
 
               {/* Activity Log */}
               <div className="animate-slide-in-left" style={{ animationDelay: '0.8s' }}>
-                <ActivityLog activities={dashboardData?.activities} />
+                <ActivityLog activities={homeData?.activities} />
               </div>
             </div>
           </div>
@@ -336,4 +316,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Home;

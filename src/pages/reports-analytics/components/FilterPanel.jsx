@@ -14,7 +14,7 @@ const FilterPanel = ({ filters, onFilterChange, onGenerateReport }) => {
   ];
 
   const postcodeOptions = [
-    { value: 'all', label: 'All Zip Codes' },
+    { value: 'all', label: 'All Post Codes' },
     { value: 'SW1', label: 'SW1 - Westminster' },
     { value: 'N1', label: 'N1 - Islington' },
     { value: 'E1', label: 'E1 - Whitechapel' },
@@ -72,13 +72,13 @@ const FilterPanel = ({ filters, onFilterChange, onGenerateReport }) => {
 
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            Zip Code Area
+            Post Code Area
           </label>
           <Select
             value={filters?.postcode}
         onChange={(value) => onFilterChange?.('postcode', value)}
         options={postcodeOptions}
-              placeholder="Select zip code"
+              placeholder="Select post code"
           />
         </div>
 

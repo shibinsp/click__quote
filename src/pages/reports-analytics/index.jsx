@@ -212,7 +212,7 @@ const ReportsAnalytics = () => {
                 </div>
                 <div className="bg-card border border-border rounded-lg p-6 animate-slide-up" style={{ animationDelay: '400ms' }}>
                   <h3 className="text-lg font-semibold text-foreground mb-4">
-                    Zip Code Performance Analysis
+                    Post Code Performance Analysis
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="text-center animate-scale-in" style={{ animationDelay: '500ms' }}>

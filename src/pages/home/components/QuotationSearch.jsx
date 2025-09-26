@@ -17,8 +17,8 @@ const QuotationSearch = ({ onSearch }) => {
       id: "QT-2024-001",
       customerName: "ABC Manufacturing Corp",
       templateType: "Transformer Installation",
-      location: "New York, NY",
-      status: "approved",
+      location: "London, UK",
+      status: "accepted",
       totalAmount: 15750.00,
       createdAt: "2024-09-20T10:30:00Z"
     },
@@ -26,8 +26,8 @@ const QuotationSearch = ({ onSearch }) => {
       id: "QT-2024-002",
       customerName: "TechFlow Industries",
       templateType: "Household Electrical",
-      location: "Los Angeles, CA",
-      status: "submitted",
+      location: "London, UK",
+      status: "in_process",
       totalAmount: 8500.00,
       createdAt: "2024-09-22T14:15:00Z"
     }

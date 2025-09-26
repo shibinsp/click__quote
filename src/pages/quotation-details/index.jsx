@@ -27,7 +27,7 @@ const QuotationDetails = () => {
     totalLoad: "150.0000000000",
     quotationStartDate: "24.09.2024 15:04:29",
     quotationEndDate: "24.10.2024 23:59:59",
-    status: "submitted",
+    status: "accepted",
     createdAt: "2024-09-24T15:04:29Z",
     updatedAt: "2024-09-24T15:04:29Z",
     validUntil: "2024-10-24T23:59:59Z",
@@ -162,11 +162,11 @@ const QuotationDetails = () => {
   }, [id]);
 
   const handleBack = () => {
-    // Navigate back to previous page or dashboard
-    if (location?.state?.from) {
-      navigate(location?.state?.from);
-    } else {
-      navigate('/dashboard');
+    // Navigate back to previous page or home
+      if (location.state?.from) {
+        navigate(location.state.from);
+      } else {
+        navigate('/home');
     }
   };
 
@@ -258,7 +258,7 @@ const QuotationDetails = () => {
                 onClick={handleBack}
                 className="text-primary hover:underline"
               >
-                Return to Dashboard
+                Return to Home
               </button>
             </div>
           </div>

@@ -70,8 +70,8 @@ const MapContainer = forwardRef(({
     if (!mapRef?.current || mapInstanceRef?.current) return;
 
     const map = L?.map(mapRef?.current, {
-      center: [54.7023, -3.2765], // UK center coordinates
-      zoom: 6,
+      center: [51.5074, -0.1278], // London center coordinates
+      zoom: 10,
       zoomControl: true,
       scrollWheelZoom: true,
       doubleClickZoom: true,
@@ -533,7 +533,7 @@ const MapContainer = forwardRef(({
 
   return (
     <div className="relative w-full h-full">
-      {/* Zip Code Search - Top center of map */}
+      {/* Postcode Search - Top center of map */}
       <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-[1000] pointer-events-auto">
         <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-lg border border-gray-200 min-w-[320px]">
           {/* This will be passed as children from parent */}
@@ -641,7 +641,7 @@ const MapContainer = forwardRef(({
                 : 'bg-green-500 hover:bg-green-600 text-white'
             }`}
           >
-            {showMarkers ? 'Hide All Markers' : 'Show All Markers'}
+            {showMarkers ? 'Hide All Points' : 'Show All Points'}
           </button>
         )}
       </div>
